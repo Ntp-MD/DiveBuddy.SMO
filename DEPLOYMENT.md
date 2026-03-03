@@ -33,16 +33,36 @@ git push -u origin main
 2. Click "Settings" tab
 3. Scroll down to "Pages" section
 4. Under "Build and deployment", select "GitHub Actions"
-5. GitHub Actions will automatically detect and use the deploy.yml workflow
+5. **Important**: Make sure repository is **Public** (required for GitHub Pages)
+6. GitHub Actions will automatically detect and use the deploy.yml workflow
 
 ### 5. Automatic Deployment
 
 - **Trigger**: Every push to `main` branch
 - **Build**: Ubuntu runner with Node.js 18
-- **Deploy**: Automatic deployment to GitHub Pages
+- **Deploy**: Automatic deployment to GitHub Pages using official actions
+- **Permissions**: Uses GitHub Pages deployment permissions (no git push needed)
 - **URL**: https://ntp-md.github.io/DiveBuddy.SMO/
 
-### 6. Manual Deployment (Alternative)
+### 6. Troubleshooting Permission Issues
+
+If you get permission errors like "Permission denied to github-actions[bot]":
+
+1. **Check Repository Visibility**:
+   - Repository must be **Public** for GitHub Pages
+   - Private repositories require GitHub Pro plan
+
+2. **Check GitHub Pages Settings**:
+   - Go to Settings → Pages
+   - Ensure "Source" is set to "GitHub Actions"
+   - Check that "Enforce HTTPS" is enabled
+
+3. **Check Workflow Permissions**:
+   - Go to Settings → Actions → General
+   - Under "Workflow permissions", ensure "Read and write permissions" is selected
+   - Allow "GitHub Actions to create and approve pull requests"
+
+### 7. Manual Deployment (Alternative)
 
 ```bash
 # Install gh-pages locally
