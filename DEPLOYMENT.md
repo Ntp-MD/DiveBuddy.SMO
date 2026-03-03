@@ -76,7 +76,7 @@ npm run build-and-deploy
 
 ### Vite Configuration (vite.config.ts)
 
-- Base path: `/divebuddy-smo/`
+- Base path: `/DiveBuddy.SMO/`
 - Build optimization: Enabled
 - Source maps: Enabled
 - Code splitting: Vue vendor chunk
@@ -92,7 +92,7 @@ npm run build-and-deploy
 ## 🌐 Live Site
 
 Once deployed, your site will be available at:
-**https://ntp-md.github.io/divebuddy-smo/**
+**https://ntp-md.github.io/DiveBuddy.SMO/**
 
 ## 🔧 Troubleshooting
 

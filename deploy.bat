@@ -15,7 +15,7 @@ REM Check if remote origin exists
 git remote get-url origin >nul 2>&1
 if %errorlevel% neq 0 (
     echo 🔗 Adding GitHub remote...
-    git remote add origin https://github.com/Ntp-MD/divebuddy-smo.git
+    git remote add origin https://github.com/Ntp-MD/DiveBuddy.SMO.git
 )
 
 REM Build the project
@@ -29,7 +29,7 @@ if %errorlevel% equ 0 (
     echo 🌐 Next steps:
     echo 1. Push to GitHub: git push -u origin main
     echo 2. Enable GitHub Pages in repository settings
-    echo 3. Your site will be available at: https://ntp-md.github.io/divebuddy-smo/
+    echo 3. Your site will be available at: https://ntp-md.github.io/DiveBuddy.SMO/
     echo.
     echo 🎯 Automatic deployment is configured via GitHub Actions!
 ) else (
