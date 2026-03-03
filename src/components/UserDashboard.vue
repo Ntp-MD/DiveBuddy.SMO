@@ -131,7 +131,7 @@ interface User {
   divesCount: number;
 }
 
-const props = defineProps<{
+const { currentUser } = defineProps<{
   currentUser: User;
 }>();
 

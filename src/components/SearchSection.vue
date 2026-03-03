@@ -39,11 +39,7 @@
   </section>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-
-const activeFilter = ref("All");
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .search-section {
