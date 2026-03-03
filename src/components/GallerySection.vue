@@ -95,7 +95,7 @@ const categories = ["All", "Marine Life", "Coral Reefs", "Cave Diving", "Deep Se
 
 const images: GalleryImage[] = [
   {
-    url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600",
+    url: "/images/vibrant-coral-reefs.jpg",
     alt: "Coral reef diving",
     title: "Vibrant Coral Reefs",
     description: "Explore the colorful underwater gardens of Thailand",
@@ -106,7 +106,7 @@ const images: GalleryImage[] = [
     size: "large",
   },
   {
-    url: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600",
+    url: "/images/marine-life-turtles.jpg",
     alt: "Sea turtle",
     title: "Marine Life Encounters",
     description: "Swimming with majestic sea turtles in their natural habitat",
@@ -117,7 +117,7 @@ const images: GalleryImage[] = [
     size: "medium",
   },
   {
-    url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600",
+    url: "/images/2273.jpg",
     alt: "Underwater cave",
     title: "Cave Exploration",
     description: "Discovering hidden underwater caverns and tunnels",
@@ -128,7 +128,7 @@ const images: GalleryImage[] = [
     size: "large",
   },
   {
-    url: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600",
+    url: "/images/29626.jpg",
     alt: "Deep sea diving",
     title: "Deep Blue Adventures",
     description: "Exploring the mysteries of the deep ocean",
@@ -139,7 +139,7 @@ const images: GalleryImage[] = [
     size: "medium",
   },
   {
-    url: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=600",
+    url: "/images/franziska_stier-diver-9328628_1280.jpg",
     alt: "Island diving",
     title: "Island Hopping",
     description: "Multiple dive sites around tropical islands",
@@ -150,7 +150,7 @@ const images: GalleryImage[] = [
     size: "small",
   },
   {
-    url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800",
+    url: "/images/joakant-fish-378286_1280.jpg",
     alt: "Night diving",
     title: "Night Dive Magic",
     description: "Bioluminescent creatures under moonlight",
@@ -161,7 +161,7 @@ const images: GalleryImage[] = [
     size: "large",
   },
   {
-    url: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+    url: "/images/joakant-lemon-butterflyfish-380037_1280.jpg",
     alt: "Whale shark",
     title: "Gentle Giants",
     description: "Once-in-a-lifetime whale shark encounter",
@@ -172,7 +172,7 @@ const images: GalleryImage[] = [
     size: "medium",
   },
   {
-    url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600",
+    url: "/images/siamways-thailand-10122355_1920.jpg",
     alt: "Coral reef",
     title: "Coral Paradise",
     description: "Vibrant coral gardens teeming with tropical fish",
@@ -183,7 +183,7 @@ const images: GalleryImage[] = [
     size: "small",
   },
   {
-    url: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600",
+    url: "/images/spinheike-thai-massage-274908_1280.jpg",
     alt: "Underwater wreck",
     title: "Shipwreck Discovery",
     description: "Exploring ancient shipwrecks and maritime history",
@@ -194,7 +194,7 @@ const images: GalleryImage[] = [
     size: "large",
   },
   {
-    url: "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600",
+    url: "/images/u_4pyuk3butj-nature-10144693_1280.jpg",
     alt: "Manta ray",
     title: "Manta Dance",
     description: "Graceful manta rays gliding through ocean currents",
@@ -205,7 +205,7 @@ const images: GalleryImage[] = [
     size: "medium",
   },
   {
-    url: "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=600",
+    url: "/images/1957.jpg",
     alt: "Underwater tunnel",
     title: "Cave Explorer",
     description: "Mysterious underwater caves and hidden tunnels",
@@ -216,7 +216,7 @@ const images: GalleryImage[] = [
     size: "small",
   },
   {
-    url: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800",
+    url: "/images/2216.jpg",
     alt: "School of fish",
     title: "Fish Symphony",
     description: "Thousands of fish moving in perfect harmony",
@@ -227,7 +227,7 @@ const images: GalleryImage[] = [
     size: "large",
   },
   {
-    url: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800",
+    url: "/images/2272.jpg",
     alt: "Deep blue",
     title: "Abyss Explorer",
     description: "Deep diving into the mysterious blue abyss",
@@ -238,7 +238,7 @@ const images: GalleryImage[] = [
     size: "medium",
   },
   {
-    url: "https://images.unsplash.com/photo-1583878928698-e7342c1e8d6d?w=800",
+    url: "/images/reef-rainbow-coral.jpg",
     alt: "Tropical reef",
     title: "Reef Rainbow",
     description: "Colorful tropical reef with diverse marine ecosystem",
@@ -694,9 +694,6 @@ const onImageError = (image: GalleryImage) => {
   font-size: var(--font-md);
   color: var(--gray);
   line-height: 1.5;
-}
-
-@media (max-width: 1023px) {
 }
 
 @media (max-width: 768px) and (orientation: portrait) {

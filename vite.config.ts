@@ -8,7 +8,7 @@ export default defineConfig({
       '@': '/src'
     }
   },
-  base: '/DiveBuddy.SMO/', // GitHub Pages repository name (case-sensitive)
+  base: '/', // Local development
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -20,5 +20,6 @@ export default defineConfig({
         }
       }
     }
-  }
+  },
+  assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif', '**/*.svg', '**/*.webp', '**/*.mp4']
 })

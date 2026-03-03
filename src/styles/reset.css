@@ -23,26 +23,6 @@ button {
   -moz-appearance: none;
 }
 
-/* Button Padding Standards */
-/* All buttons should use these consistent padding values */
-.btn-sm {
-  padding: calc(var(--gap-xs) * 0.75) var(--gap-sm);
-}
-
-.btn-md {
-  padding: var(--gap-sm) var(--gap-md);
-}
-
-.btn-lg {
-  padding: var(--gap-md) var(--gap-lg);
-}
-
-.btn-xl {
-  padding: var(--gap-lg) var(--gap-xl);
-}
-
-/* Default button size is medium (var(--gap-sm) var(--gap-md)) */
-
 /* Specific resets for different input types */
 textarea {
   border-radius: var(--radius-sm);

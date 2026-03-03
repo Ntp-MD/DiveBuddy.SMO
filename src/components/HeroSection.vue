@@ -86,7 +86,6 @@
   font-size: var(--font-sm);
   font-weight: 600;
   transition: all 0.3s ease;
-  display: inline-block;
 }
 
 .btn-explore:hover {
@@ -116,102 +115,9 @@
   color: var(--white);
 }
 
-@media (max-width: 1023px) {
-  .hero-content {
-    padding: 0 var(--gap-md);
-  }
-
-  .hero-title {
-    font-size: var(--font-lg);
-  }
-
-  .hero-subtitle {
-    padding: 0 var(--gap-md);
-    max-width: 700px;
-  }
-
-  .hero-title {
-    font-size: var(--font-lg);
-    margin-bottom: var(--gap-sm);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-sm);
-    margin-bottom: var(--gap-md);
-  }
-
-  .hero-buttons {
-    gap: var(--gap-md);
-    flex-direction: row;
-  }
-}
-
-@media (max-width: 1023px) and (orientation: landscape) {
-  .hero {
-    height: 80vh;
-  }
-
-  .hero-content {
-    max-width: 900px;
-  }
-
-  .hero-title {
-    font-size: var(--font-xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-md);
-  }
-}
-
 @media (max-width: 768px) {
   .hero {
     height: 70vh;
-  }
-
-  .hero-content {
-    padding: 0 var(--gap-sm);
-  }
-
-  .hero-title {
-    font-size: var(--font-md);
-    margin-bottom: var(--gap-xs);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-xs);
-    margin-bottom: var(--gap-md);
-  }
-
-  .hero-buttons {
-    gap: var(--gap-md);
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    height: 60vh;
-  }
-
-  .hero-content {
-    padding: 0 var(--gap-sm);
-  }
-
-  .hero-title {
-    font-size: var(--font-sm);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-xs);
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    gap: var(--gap-sm);
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
   }
 }
 </style>

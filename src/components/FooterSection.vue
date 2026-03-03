@@ -67,7 +67,7 @@
 .footer {
   background: var(--blackblue);
   color: var(--white);
-  padding: var(--gap-xl) 0 var(--gap-md);
+  padding: var(--pad-section) 0;
 }
 
 .footer-grid {

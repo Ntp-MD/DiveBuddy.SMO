@@ -2,16 +2,27 @@
   <nav class="navbar" :class="{ 'navbar-scrolled': isScrolled }" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-logo">
-        <a href="/" aria-label="DiveBuddy.SMO Home">DiveBuddy.SMO</a>
+        <a href="/" aria-label="DiveBuddy.SMO Home">DiveBuddy</a>
       </div>
-      <ul class="nav-menu" role="menubar">
-        <li role="none"><a href="/" role="menuitem">Home</a></li>
-        <li role="none"><a href="#destinations" role="menuitem">Destinations</a></li>
-        <li role="none"><a href="#courses" role="menuitem">Courses</a></li>
-        <li role="none"><a href="#pricing" role="menuitem">Pricing</a></li>
-        <li role="none"><a href="#gallery" role="menuitem">Gallery</a></li>
-        <li role="none"><a href="#contact" role="menuitem">Contact</a></li>
-      </ul>
+      <button
+        class="mobile-toggle"
+        @click="toggleMobileMenu"
+        :class="{ active: isMobileMenuOpen }"
+        aria-label="Toggle mobile menu"
+        :aria-expanded="isMobileMenuOpen"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav-menu" :class="{ 'mobile-open': isMobileMenuOpen }" role="navigation">
+        <a href="/" role="menuitem" @click="toggleMobileMenu">Home</a>
+        <a href="#destinations" role="menuitem" @click="toggleMobileMenu">Destinations</a>
+        <a href="#courses" role="menuitem" @click="toggleMobileMenu">Courses</a>
+        <a href="#pricing" role="menuitem" @click="toggleMobileMenu">Pricing</a>
+        <a href="#gallery" role="menuitem" @click="toggleMobileMenu">Gallery</a>
+        <a href="#contact" role="menuitem" @click="toggleMobileMenu">Contact</a>
+      </nav>
       <div class="nav-actions">
         <button v-if="!currentUser" class="nav-login" @click="showLogin" aria-label="Login to your account">Login</button>
         <button v-else class="nav-user" @click="showDashboardModal = true" aria-label="Open user dashboard">
@@ -45,6 +56,7 @@ const isScrolled = ref(false);
 const showLoginModal = ref(false);
 const showDashboardModal = ref(false);
 const currentUser = ref<any>(null);
+const isMobileMenuOpen = ref(false);
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50;
@@ -56,6 +68,10 @@ const showLogin = () => {
 
 const closeLogin = () => {
   showLoginModal.value = false;
+};
+
+const toggleMobileMenu = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
 
 const handleLogin = (user: any) => {
@@ -106,25 +122,58 @@ onUnmounted(() => {
 }
 
 .nav-container {
-  max-width: 1400px;
+  max-width: 1600px;
+  display: grid;
+  grid-template-columns: 30% auto 30%;
+  align-items: center;
   margin: 0 auto;
   padding: 0 var(--pad-container);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .nav-logo a {
-  font-size: var(--font-md);
+  font-size: var(--font-xl);
   font-weight: 700;
   color: var(--white);
   text-decoration: none;
 }
 
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+}
+
+.mobile-toggle span {
+  width: 100%;
+  height: 2px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
 .nav-menu {
   display: flex;
-  list-style: none;
-  gap: var(--gap-lg);
+  justify-content: space-evenly;
+  width: stretch;
 }
 
 .nav-menu a {
@@ -141,6 +190,7 @@ onUnmounted(() => {
   display: flex;
   gap: var(--gap-sm);
   align-items: center;
+  margin-left: auto;
 }
 
 .nav-login {
@@ -216,9 +266,58 @@ a {
   color: var(--white);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1023px) {
+  .mobile-toggle {
+    display: flex;
+  }
+
   .nav-menu {
     display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--orange);
+    flex-direction: column;
+    padding: var(--gap-xl) var(--gap-lg) var(--gap-lg);
+    gap: var(--gap-md);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+
+  .nav-menu.mobile-open {
+    display: flex;
+    right: 0;
+  }
+
+  .nav-menu a {
+    display: block;
+    width: 100%;
+    padding: var(--gap-md);
+    border-radius: var(--radius-md);
+    color: var(--white);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>
