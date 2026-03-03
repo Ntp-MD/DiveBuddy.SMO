@@ -1,0 +1,16 @@
+.template1 {
+  --gap-base: var(--gap-md);
+  display: grid;
+  gap: var(--gap-base);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      clamp(
+        calc(100% / 4 - var(--gap-base)),
+        (1200px - 100vw) * 999,
+        clamp(calc(100% / 3 - var(--gap-base)), (992px - 100vw) * 999, clamp(calc(100% / 2 - var(--gap-base)), (480px - 100vw) * 999, 100%))
+      ),
+      1fr
+    )
+  );
+}

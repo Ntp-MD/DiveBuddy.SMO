@@ -1,0 +1,40 @@
+:root {
+  /* Colors */
+  --orange: #ef6c33;
+  --darkblue: #0c4a60;
+  --deepblue: #091e23;
+  --blackblue: #04171b;
+  --gray: #64748b;
+  --lightgray: #f1f5f9;
+  --white: #ffffff;
+  --color1: #7c7c7c;
+  --color2: #46595f;
+  --color3: #46595f;
+
+  /* Shadow colors */
+  --shadow-orange: rgba(239, 108, 51, 0.3);
+  --shadow-darkblue: rgba(12, 74, 96, 0.3);
+  --shadow-deepblue: rgba(9, 30, 35, 0.3);
+
+  /* Responsive spacing variables - clamp(px, vw, px) pattern */
+  --gap-xs: 10px;
+  --gap-sm: 20px;
+  --gap-md: clamp(20px, 2vw, 30px);
+
+  /* Section padding */
+  --pad-section: clamp(40px, 6vw, 80px);
+  --pad-container: clamp(20px, 4vw, 60px);
+
+  /* Border radius */
+  --radius-xs: clamp(2px, 0.3vw, 4px);
+  --radius-sm: clamp(4px, 0.5vw, 8px);
+  --radius-md: clamp(8px, 1vw, 12px);
+  --radius-lg: clamp(12px, 1.5vw, 16px);
+
+  /* Font sizes */
+  --font-xs: clamp(12px, 1vw, 14px);
+  --font-sm: clamp(14px, 1.2vw, 16px);
+  --font-md: clamp(16px, 1.5vw, 18px);
+  --font-lg: clamp(20px, 2vw, 24px);
+  --font-xl: clamp(26px, 4.5vw, 36px);
+}

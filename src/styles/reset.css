@@ -1,0 +1,211 @@
+/* Form Elements Reset CSS */
+a {
+  text-decoration: none;
+}
+
+/* Reset all form elements to remove default browser styling */
+input,
+textarea,
+select,
+button {
+  margin: 0;
+  padding: var(--gap-sm) var(--gap-md);
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-decoration: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Button Padding Standards */
+/* All buttons should use these consistent padding values */
+.btn-sm {
+  padding: calc(var(--gap-xs) * 0.75) var(--gap-sm);
+}
+
+.btn-md {
+  padding: var(--gap-sm) var(--gap-md);
+}
+
+.btn-lg {
+  padding: var(--gap-md) var(--gap-lg);
+}
+
+.btn-xl {
+  padding: var(--gap-lg) var(--gap-xl);
+}
+
+/* Default button size is medium (var(--gap-sm) var(--gap-md)) */
+
+/* Specific resets for different input types */
+textarea {
+  border-radius: var(--radius-sm);
+  background-color: var(--white);
+  width: 100%;
+}
+
+input[type="file"] {
+  cursor: pointer;
+}
+
+input[type="range"] {
+  border: none;
+  background: transparent;
+}
+
+/* Select element reset */
+select {
+  cursor: pointer;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius-sm);
+  background-color: var(--white);
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+  width: fit-content;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Remove focus outlines for mouse users */
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Keep focus visible for keyboard users */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* Placeholder styling */
+input::placeholder,
+textarea::placeholder {
+  color: var(--gray);
+  opacity: 1;
+}
+
+/* Remove IE's clear button */
+input::-ms-clear {
+  display: none;
+}
+
+/* Remove IE's reveal password button */
+input::-ms-reveal {
+  display: none;
+}
+
+/* Remove Chrome's autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--white) inset;
+  -webkit-text-fill-color: var(--deepblue);
+}
+
+/* Firefox focus fix */
+input[type="number"]::-moz-focus-inner,
+input[type="number"]::-moz-focus-outer {
+  border: 0;
+  padding: 0;
+}
+
+/* Remove number input arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Fieldset and legend reset */
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--gap-sm);
+  padding: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: 0;
+  border-bottom: 1px solid var(--gray);
+  padding-bottom: var(--gap-sm);
+}
+
+/* Label reset */
+label {
+  display: inline-block;
+  margin-bottom: var(--gap-sm);
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* Form group utility */
+.form-group {
+  margin-bottom: var(--gap);
+}
+
+.form-control {
+  display: block;
+  width: fit-content;
+  font-size: var(--font-sm);
+  line-height: 1.5;
+  color: var(--deepblue);
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: var(--deepblue);
+  background-color: var(--white);
+  border-color: var(--orange);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(239, 108, 51, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--gray);
+  opacity: 1;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: var(--lightgray);
+  opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+  input,
+  textarea,
+  select {
+    width: 100%;
+  }
+}
