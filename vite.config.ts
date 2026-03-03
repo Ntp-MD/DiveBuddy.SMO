@@ -8,7 +8,7 @@ export default defineConfig({
       '@': '/src'
     }
   },
-  base: '/', // Local development
+  base: '/DiveBuddy.SMO/', // GitHub Pages repository name (case-sensitive)
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
