@@ -9,7 +9,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/divebuddy-smo/', // GitHub Pages repository name
+  base: '/DiveBuddy.SMO/', // GitHub Pages repository name (case-sensitive)
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

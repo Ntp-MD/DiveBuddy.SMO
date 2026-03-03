@@ -4,7 +4,7 @@ A modern, responsive landing page for a diving company built with Vue 3, TypeScr
 
 ## 🌐 Live Demo
 
-**https://ntp-md.github.io/divebuddy-smo/**
+**https://ntp-md.github.io/DiveBuddy.SMO/**
 
 ## Features
 
@@ -74,7 +74,7 @@ This project is automatically deployed to GitHub Pages using GitHub Actions:
 - **Trigger**: Every push to `main` branch
 - **Build**: Ubuntu runner with Node.js 18
 - **Deploy**: Automatic deployment to GitHub Pages
-- **URL**: https://ntp-md.github.io/divebuddy-smo/
+- **URL**: https://ntp-md.github.io/DiveBuddy.SMO/
 
 For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md).
 
