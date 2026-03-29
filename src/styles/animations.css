@@ -1,0 +1,19 @@
+/* Hover Effects */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-orange);
+}
+
+.hover-lift-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--shadow-darkblue);
+}
+
+/* Standard Transitions */
+.transition-standard {
+  transition: all 0.3s ease;
+}
+
+.transition {
+  transition: all 0.3s ease;
+}

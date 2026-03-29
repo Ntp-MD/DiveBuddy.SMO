@@ -1,23 +1,16 @@
-/* Main CSS File - Imports all styles in correct order */
+/* Main CSS File - Import Order */
 
-/* 1. Variables - Must be imported first */
+/* 1. Variables (USER ONLY - do not modify) */
 @import "./variables.css";
 
-/* 2. Reset CSS - Normalize form elements and browser defaults */
+/* 2. Reset - HTML element resets and browser defaults */
 @import "./reset.css";
 
-/* 3. Global CSS - Base styles and utility classes */
-@import "./global.css";
+/* 3. Utilities - Reusable layout and utility classes */
+@import "./utilities.css";
 
-/* 
-CSS Import Order Explanation:
-1. Variables first - All CSS variables must be defined before they can be used
-2. Reset second - Remove browser defaults and normalize form elements
-3. Global third - Apply base styles, typography, and utility classes
+/* 4. Form - Base form styles */
+@import "./form.css";
 
-This order ensures:
-- Variables are available to all subsequent files
-- Form elements are properly reset before styling
-- Global styles build on the reset foundation
-- No conflicts or undefined variable issues
-*/
+/* 5. Animations - Hover effects and transitions */
+@import "./animations.css";

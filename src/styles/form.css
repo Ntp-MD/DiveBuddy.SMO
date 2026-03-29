@@ -1,0 +1,61 @@
+/* Form Utility Classes */
+.form-group {
+  margin-bottom: var(--gap-md);
+}
+
+.form-control {
+  display: block;
+  width: fit-content;
+  font-size: var(--font-sm);
+  line-height: 1.5;
+  color: var(--deepblue);
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: 1px solid var(--gray);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  color: var(--deepblue);
+  background-color: var(--white);
+  border-color: var(--orange);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(239, 108, 51, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--gray);
+  opacity: 1;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: var(--lightgray);
+  opacity: 1;
+}
+
+/* Input Utility */
+.input {
+  width: 100%;
+  padding: var(--gap-sm);
+  border: 2px solid var(--darkblue);
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  background: var(--lightgray);
+  color: var(--deepblue);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--orange);
+  background: var(--white);
+}
+
+.input::placeholder {
+  color: var(--gray);
+}

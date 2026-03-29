@@ -291,7 +291,7 @@ const showBookingManagement = () => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--gap-md);
-  margin-bottom: var(--gap-lg);
+  margin-bottom: calc(var(--gap-md) * 1.5);
 }
 
 .stat-card {

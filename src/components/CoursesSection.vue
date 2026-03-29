@@ -1,34 +1,24 @@
 <template>
   <section class="section courses" id="courses">
     <div class="container">
-      <div class="section-header">
-        <h2 class="section-title">Diving Courses & Packages</h2>
+      <div class="courses-header">
+        <h2 class="courses-heading">Your Diving Journey</h2>
+        <p class="courses-sub">From first breath underwater to professional divemaster</p>
       </div>
       <div class="courses-grid">
-        <div v-for="course in courses" :key="course.id" class="course-card card">
-          <div class="course-badge" :class="`badge-${course.level.toLowerCase()}`">
-            {{ course.level }}
+        <div v-for="(course, index) in courses" :key="course.id" class="course-item">
+          <div class="course-item-step">{{ String(index + 1).padStart(2, "0") }}</div>
+          <div class="course-item-icon">{{ course.icon }}</div>
+          <h3 class="course-item-name">{{ course.name }}</h3>
+          <p class="course-item-desc">{{ course.description }}</p>
+          <div class="course-item-info">
+            <span class="course-item-tag">{{ course.duration }}</span>
+            <span class="course-item-tag">{{ course.level }}</span>
           </div>
-          <div class="course-icon">
-            <div class="icon-circle">{{ course.icon }}</div>
+          <div class="course-item-footer">
+            <span class="course-item-price">${{ course.price }}</span>
+            <button class="course-item-btn">Enroll</button>
           </div>
-          <h3 class="course-title">{{ course.name }}</h3>
-          <p class="course-desc">{{ course.description }}</p>
-          <div class="course-details">
-            <div class="detail-item">
-              <span class="detail-label">Duration:</span>
-              <span class="detail-value">{{ course.duration }}</span>
-            </div>
-            <div class="detail-item">
-              <span class="detail-label">Level:</span>
-              <span class="detail-value">{{ course.level }}</span>
-            </div>
-          </div>
-          <div class="course-price">
-            <span class="price-amount">${{ course.price }}</span>
-            <span class="price-label">per person</span>
-          </div>
-          <button class="course-btn">Enroll Now</button>
         </div>
       </div>
     </div>
@@ -87,197 +77,130 @@ const courses: Course[] = [
 </script>
 
 <style scoped>
-.courses-grid {
-  display: grid;
-  gap: var(--gap-md);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(
-      clamp(
-        calc(100% / 4 - var(--gap-md)),
-        (1200px - 100vw) * 999,
-        clamp(calc(100% / 3 - var(--gap-md)), (992px - 100vw) * 999, clamp(calc(100% / 2 - var(--gap-md)), (480px - 100vw) * 999, 100%))
-      ),
-      1fr
-    )
-  );
-}
-
 .courses {
-  background: var(--white);
+  background: linear-gradient(135deg, var(--deepblue) 0%, var(--blackblue) 100%);
 }
 
-.course-card {
-  padding: var(--gap-md) var(--gap-sm);
+.courses-header {
   text-align: center;
-  border: 1px solid var(--lightgray);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.course-card:hover {
-  border-color: var(--orange);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.course-badge {
-  position: absolute;
-  top: var(--gap-sm);
-  right: var(--gap-sm);
-  padding: calc(var(--gap-xs) * 0.5) var(--gap-xs);
-  font-size: var(--font-xs);
-  font-weight: 600;
-  border-radius: var(--radius-sm);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.badge-beginner {
-  background: var(--lightgray);
-  color: var(--deepblue);
-}
-
-.badge-intermediate {
-  background: var(--orange);
-  color: var(--white);
-}
-
-.badge-advanced {
-  background: var(--darkblue);
-  color: var(--white);
-}
-
-.badge-professional {
-  background: var(--blackblue);
-  color: var(--white);
-}
-
-.course-icon {
-  margin-bottom: var(--gap-sm);
-}
-
-.icon-circle {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto;
-  background: linear-gradient(135deg, var(--darkblue), var(--deepblue));
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-}
-
-.course-title {
-  font-size: var(--font-xs);
-  font-weight: 700;
-  color: var(--darkblue);
-  margin-bottom: var(--gap-sm);
-}
-
-.course-desc {
-  font-size: var(--font-sm);
-  color: var(--gray);
-  margin-bottom: var(--gap-sm);
-  line-height: 1.5;
-}
-
-.course-details {
-  margin-bottom: var(--gap-sm);
-  padding: var(--gap-sm) 0;
-  border-top: 1px solid var(--lightgray);
-  border-bottom: 1px solid var(--lightgray);
-}
-
-.detail-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: var(--gap-sm);
-}
-
-.detail-item:last-child {
-  margin-bottom: 0;
-}
-
-.detail-label {
-  font-size: var(--font-xs);
-  color: var(--gray);
-}
-
-.detail-value {
-  font-size: var(--font-xs);
-  font-weight: 600;
-  color: var(--darkblue);
-}
-
-.course-price {
   margin-bottom: var(--gap-md);
 }
 
-.price-amount {
-  display: block;
+.courses-heading {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: var(--gap-xs);
+}
+
+.courses-sub {
+  font-size: var(--font-md);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.courses-grid {
+  display: grid;
+  gap: var(--gap-md);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.course-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--gap-md);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.course-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--orange);
+  transform: translateY(-4px);
+}
+
+.course-item-step {
+  font-size: var(--font-xl);
+  font-weight: 800;
+  color: var(--orange);
+  opacity: 0.3;
+  position: absolute;
+  top: var(--gap-sm);
+  right: var(--gap-sm);
+  line-height: 1;
+}
+
+.course-item-icon {
+  font-size: 40px;
+  margin-bottom: var(--gap-sm);
+}
+
+.course-item-name {
   font-size: var(--font-md);
   font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--gap-xs);
+}
+
+.course-item-desc {
+  font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin-bottom: var(--gap-sm);
+}
+
+.course-item-info {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-xs);
+  margin-bottom: var(--gap-sm);
+}
+
+.course-item-tag {
+  padding: calc(var(--gap-xs) * 0.5) var(--gap-xs);
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.course-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--gap-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.course-item-price {
+  font-size: var(--font-lg);
+  font-weight: 800;
   color: var(--orange);
 }
 
-.price-label {
-  font-size: var(--font-xs);
-  color: var(--gray);
-}
-
-.course-btn {
-  display: inline-block;
-  width: 100%;
-  background-color: var(--orange);
+.course-item-btn {
+  background: var(--orange);
   color: var(--white);
-  text-align: center;
-  border-radius: var(--radius-sm);
-  font-size: var(--font-sm);
-  font-weight: 600;
+  border-radius: var(--radius-md);
+  font-size: var(--font-xs);
+  font-weight: 700;
   transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
 }
 
-.course-btn:hover {
-  background-color: var(--darkblue);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--shadow-orange);
-}
-
-@media (max-width: 768px) and (orientation: portrait) {
-  .course-card {
-    padding: var(--gap-md);
-  }
-
-  .course-title {
-    font-size: var(--font-md);
-  }
-
-  .course-desc {
-    font-size: var(--font-sm);
-  }
+.course-item-btn:hover {
+  background: var(--white);
+  color: var(--darkblue);
 }
 
 @media (max-width: 480px) {
-  .course-card {
-    padding: var(--gap-sm);
+  .course-item-icon {
+    font-size: 28px;
   }
 
-  .icon-circle {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-  }
-
-  .course-title {
+  .course-item-name {
     font-size: var(--font-sm);
-  }
-
-  .course-desc {
-    font-size: var(--font-xs);
   }
 }
 </style>

@@ -1,25 +1,21 @@
 <template>
-  <section class="section testimonials">
+  <section class="section testi" id="testimonials">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">What Our Divers Say</h2>
+        <h2 class="section-title">Diver Stories</h2>
+        <p class="section-subtitle">Real experiences from our diving community</p>
       </div>
-      <div class="testimonials-grid">
-        <div v-for="testimonial in testimonials" :key="testimonial.id" class="testimonial-card">
-          <div class="testimonial-content">
-            <div class="quote-icon">"</div>
-            <p class="testimonial-text">{{ testimonial.text }}</p>
+      <div class="testi-grid">
+        <div v-for="testimonial in testimonials" :key="testimonial.id" class="testi-card">
+          <div class="testi-card-stars">
+            <span v-for="star in 5" :key="star" class="testi-card-star">★</span>
           </div>
-          <div class="testimonial-author">
-            <div class="author-avatar">
-              <img :src="testimonial.avatar" :alt="testimonial.name" />
-            </div>
-            <div class="author-info">
-              <h4 class="author-name">{{ testimonial.name }}</h4>
-              <p class="author-role">{{ testimonial.role }}</p>
-              <div class="rating">
-                <span v-for="star in 5" :key="star" class="star">★</span>
-              </div>
+          <p class="testi-card-text">"{{ testimonial.text }}"</p>
+          <div class="testi-card-author">
+            <img :src="testimonial.avatar" :alt="testimonial.name" class="testi-card-avatar" />
+            <div class="testi-card-info">
+              <h4 class="testi-card-name">{{ testimonial.name }}</h4>
+              <p class="testi-card-role">{{ testimonial.role }}</p>
             </div>
           </div>
         </div>
@@ -84,179 +80,85 @@ const testimonials: Testimonial[] = [
 </script>
 
 <style scoped>
-.testimonials-grid {
-  --gap-base: var(--gap-md);
-  display: grid;
-  gap: var(--gap-base);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(
-      clamp(
-        calc(100% / 4 - var(--gap-base)),
-        (1200px - 100vw) * 999,
-        clamp(calc(100% / 3 - var(--gap-base)), (992px - 100vw) * 999, clamp(calc(100% / 2 - var(--gap-base)), (480px - 100vw) * 999, 100%))
-      ),
-      1fr
-    )
-  );
+.testi {
+  background: var(--white);
 }
 
-.testimonials {
-  background: var(--lightgray);
-}
-
-.testimonials-grid {
+.testi-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--gap-md);
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.testimonial-card {
+.testi-card {
   background: var(--white);
   padding: var(--gap-md);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 var(--gap-xs) var(--gap-md) rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--orange);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.testi-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--shadow-deepblue);
 }
 
-.testimonial-content {
-  position: relative;
-  margin-bottom: 24px;
+.testi-card-stars {
+  margin-bottom: var(--gap-xs);
 }
 
-.quote-icon {
-  font-size: var(--font-xl);
+.testi-card-star {
   color: var(--orange);
-  opacity: 0.3;
-  position: absolute;
-  top: calc(var(--gap-md) * -1);
-  left: var(--gap-sm);
-  font-family: serif;
-}
-
-.testimonial-text {
   font-size: var(--font-sm);
-  line-height: 1.6;
-  color: var(--deepblue);
-  position: relative;
-  z-index: 1;
-  font-style: italic;
 }
 
-.testimonial-author {
+.testi-card-text {
+  font-size: var(--font-sm);
+  color: var(--deepblue);
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: var(--gap-sm);
+}
+
+.testi-card-author {
   display: flex;
   align-items: center;
   gap: var(--gap-sm);
+  padding-top: var(--gap-sm);
+  border-top: 1px solid var(--lightgray);
 }
 
-.author-avatar {
-  width: calc(var(--gap-md) * 3);
-  height: calc(var(--gap-md) * 3);
+.testi-card-avatar {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  overflow: hidden;
+  object-fit: cover;
   flex-shrink: 0;
 }
 
-.author-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.author-info {
-  flex: 1;
-}
-
-.author-name {
-  font-size: var(--font-xs);
+.testi-card-name {
+  font-size: var(--font-sm);
   font-weight: 700;
   color: var(--darkblue);
-  margin-bottom: var(--gap-sm);
 }
 
-.author-role {
+.testi-card-role {
   font-size: var(--font-xs);
   color: var(--gray);
-  margin-bottom: var(--gap-sm);
 }
 
-.rating {
-  color: var(--orange);
-  font-size: var(--font-md);
-}
-
-.star {
-  margin-right: var(--gap-xs);
-}
-
-@media (max-width: 1023px) {
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) and (orientation: portrait) {
-  .testimonials-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap-md);
-  }
-
-  .testimonial-card {
-    padding: var(--gap-md);
-  }
-
-  .quote-icon {
-    font-size: var(--font-lg);
-  }
-
-  .testimonial-text {
-    font-size: var(--font-sm);
-  }
-}
-
-@media (max-width: 1023px) and (orientation: landscape) {
-  .testimonials-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--gap-md);
+@media (max-width: 768px) {
+  .testi-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 480px) {
-  .testimonials-grid {
+  .testi-grid {
     grid-template-columns: 1fr;
-    gap: var(--gap-sm);
-  }
-
-  .testimonial-card {
-    padding: var(--gap-md);
-  }
-
-  .testimonial-content {
-    margin-bottom: var(--gap-md);
-  }
-
-  .quote-icon {
-    font-size: var(--font-md);
-    top: calc(var(--gap-md) * -0.75);
-    left: calc(var(--gap-sm) * -0.5);
-  }
-
-  .author-avatar {
-    width: calc(var(--gap-md) * 2.5);
-    height: calc(var(--gap-md) * 2.5);
-  }
-
-  .testimonial-text {
-    font-size: var(--font-xs);
   }
 }
 </style>

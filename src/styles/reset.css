@@ -1,9 +1,292 @@
-/* Form Elements Reset CSS */
-a {
-  text-decoration: none;
+/* HTML5 Element Resets */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Reset all form elements to remove default browser styling */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: var(--font-sm);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--deepblue);
+  background-color: var(--white);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+*:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--font-xl);
+}
+
+h2 {
+  font-size: var(--font-lg);
+}
+
+h3 {
+  font-size: var(--font-md);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--font-sm);
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Text-level semantics */
+a {
+  color: inherit;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: 0.875em;
+}
+
+sub,
+sup {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content */
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+svg {
+  fill: currentColor;
+}
+
+picture {
+  display: block;
+}
+
+/* Grouping content */
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  border: 0;
+  border-top: 1px solid var(--gray);
+  margin: var(--gap-md) 0;
+}
+
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+  overflow: auto;
+}
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Table resets */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+caption {
+  padding-top: var(--gap-sm);
+  padding-bottom: var(--gap-sm);
+  color: var(--gray);
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  text-align: left;
+  font-weight: 700;
+}
+
+td,
+th {
+  padding: var(--gap-xs);
+  border-bottom: 1px solid var(--lightgray);
+}
+
+/* Lists */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+dl {
+  margin: 0;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0;
+}
+
+/* Quotes */
+blockquote {
+  margin: 0;
+  padding: var(--gap-sm);
+  border-left: 4px solid var(--orange);
+  background-color: var(--lightgray);
+  font-style: italic;
+}
+
+q {
+  quotes: none;
+}
+
+q::before,
+q::after {
+  content: "";
+  content: none;
+}
+
+/* Details and summary */
+details {
+  display: block;
+}
+
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* Progress */
+progress {
+  vertical-align: baseline;
+}
+
+/* Media */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+audio,
+video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* Hidden attribute */
+[hidden] {
+  display: none !important;
+}
+
+/* Disabled state */
+[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--orange);
+  color: var(--white);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background-color: var(--orange);
+  color: var(--white);
+  text-shadow: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lightgray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--darkblue);
+}
+
+/* Form Elements Reset */
 input,
 textarea,
 select,
@@ -23,7 +306,6 @@ button {
   -moz-appearance: none;
 }
 
-/* Specific resets for different input types */
 textarea {
   border-radius: var(--radius-sm);
   background-color: var(--white);
@@ -39,7 +321,6 @@ input[type="range"] {
   background: transparent;
 }
 
-/* Select element reset */
 select {
   cursor: pointer;
   border: 1px solid var(--gray);
@@ -57,7 +338,7 @@ button {
   cursor: pointer;
 }
 
-/* Remove focus outlines for mouse users */
+/* Focus styles */
 input:focus:not(:focus-visible),
 textarea:focus:not(:focus-visible),
 select:focus:not(:focus-visible),
@@ -65,12 +346,11 @@ button:focus:not(:focus-visible) {
   outline: none;
 }
 
-/* Keep focus visible for keyboard users */
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid transparent;
   outline-offset: 2px;
 }
 
@@ -81,17 +361,15 @@ textarea::placeholder {
   opacity: 1;
 }
 
-/* Remove IE's clear button */
 input::-ms-clear {
   display: none;
 }
 
-/* Remove IE's reveal password button */
 input::-ms-reveal {
   display: none;
 }
 
-/* Remove Chrome's autofill background */
+/* Chrome autofill */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -100,21 +378,20 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: var(--deepblue);
 }
 
-/* Firefox focus fix */
+/* Firefox */
 input[type="number"]::-moz-focus-inner,
 input[type="number"]::-moz-focus-outer {
   border: 0;
   padding: 0;
 }
 
-/* Remove number input arrows */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Fieldset and legend reset */
+/* Fieldset and legend */
 fieldset {
   margin: 0;
   padding: 0;
@@ -135,51 +412,10 @@ legend {
   padding-bottom: var(--gap-sm);
 }
 
-/* Label reset */
 label {
   display: inline-block;
-  margin-bottom: var(--gap-sm);
   font-weight: normal;
   cursor: pointer;
-}
-
-/* Form group utility */
-.form-group {
-  margin-bottom: var(--gap);
-}
-
-.form-control {
-  display: block;
-  width: fit-content;
-  font-size: var(--font-sm);
-  line-height: 1.5;
-  color: var(--deepblue);
-  background-color: var(--white);
-  background-clip: padding-box;
-  border: 1px solid var(--gray);
-  border-radius: var(--radius-sm);
-  transition:
-    border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
-}
-
-.form-control:focus {
-  color: var(--deepblue);
-  background-color: var(--white);
-  border-color: var(--orange);
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(239, 108, 51, 0.25);
-}
-
-.form-control::placeholder {
-  color: var(--gray);
-  opacity: 1;
-}
-
-.form-control:disabled,
-.form-control[readonly] {
-  background-color: var(--lightgray);
-  opacity: 1;
 }
 
 @media screen and (max-width: 480px) {

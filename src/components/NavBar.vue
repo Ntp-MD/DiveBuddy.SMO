@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar" :class="{ 'navbar-scrolled': isScrolled }" role="navigation" aria-label="Main navigation">
+  <nav :class="['navbar', isScrolled && 'navbar-scrolled']" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-logo">
         <a href="/" aria-label="DiveBuddy.SMO Home">DiveBuddy</a>
@@ -7,7 +7,7 @@
       <button
         class="mobile-toggle"
         @click="toggleMobileMenu"
-        :class="{ active: isMobileMenuOpen }"
+        :class="['mobile-toggle', isMobileMenuOpen && 'active']"
         aria-label="Toggle mobile menu"
         :aria-expanded="isMobileMenuOpen"
       >
@@ -15,7 +15,7 @@
         <span></span>
         <span></span>
       </button>
-      <nav class="nav-menu" :class="{ 'mobile-open': isMobileMenuOpen }" role="navigation">
+      <nav :class="['nav-menu', isMobileMenuOpen && 'mobile-open']" role="navigation">
         <a href="/" role="menuitem" @click="toggleMobileMenu">Home</a>
         <a href="#destinations" role="menuitem" @click="toggleMobileMenu">Destinations</a>
         <a href="#courses" role="menuitem" @click="toggleMobileMenu">Courses</a>
@@ -110,15 +110,17 @@ onUnmounted(() => {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: transparent;
   z-index: 1000;
   padding: var(--gap-md) 0;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .navbar-scrolled {
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
+  background-color: rgba(9, 30, 35, 0.85);
+  backdrop-filter: blur(12px);
+  padding: var(--gap-xs) 0;
+  box-shadow: 0 2px 20px var(--shadow-deepblue);
 }
 
 .nav-container {
@@ -215,7 +217,7 @@ onUnmounted(() => {
   color: var(--white);
   border-radius: var(--radius-sm);
   font-weight: 600;
-  padding: var(--pad-sm);
+  padding: var(--gap-sm);
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
@@ -281,7 +283,7 @@ a {
     height: 100vh;
     background: var(--orange);
     flex-direction: column;
-    padding: var(--gap-xl) var(--gap-lg) var(--gap-lg);
+    padding: calc(var(--gap-md) * 2) var(--gap-md) var(--gap-md);
     gap: var(--gap-md);
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 999;

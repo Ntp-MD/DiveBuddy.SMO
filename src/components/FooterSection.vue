@@ -1,60 +1,44 @@
 <template>
-  <footer class="footer">
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h3 class="footer-title">DiveBuddy.SMO</h3>
-          <p class="footer-desc">Your trusted partner for unforgettable diving experiences in Thailand's most beautiful waters.</p>
+      <div class="site-footer-top">
+        <div class="site-footer-brand">
+          <h3 class="site-footer-logo">DiveBuddy.SMO</h3>
+          <p class="site-footer-tagline">Your trusted partner for unforgettable diving experiences in Thailand.</p>
         </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Quick Links</h4>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#destinations">Destinations</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About Us</a></li>
+        <div class="site-footer-nav">
+          <h4 class="site-footer-heading">Explore</h4>
+          <ul class="site-footer-list">
+            <li><a href="#destinations" class="site-footer-link">Destinations</a></li>
+            <li><a href="#courses" class="site-footer-link">Courses</a></li>
+            <li><a href="#pricing" class="site-footer-link">Pricing</a></li>
+            <li><a href="#gallery" class="site-footer-link">Gallery</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Courses</h4>
-          <ul class="footer-links">
-            <li><a href="#open-water">Open Water</a></li>
-            <li><a href="#advanced">Advanced</a></li>
-            <li><a href="#rescue">Rescue Diver</a></li>
-            <li><a href="#divemaster">Divemaster</a></li>
+        <div class="site-footer-nav">
+          <h4 class="site-footer-heading">Certifications</h4>
+          <ul class="site-footer-list">
+            <li><a href="#courses" class="site-footer-link">Open Water</a></li>
+            <li><a href="#courses" class="site-footer-link">Advanced</a></li>
+            <li><a href="#courses" class="site-footer-link">Rescue Diver</a></li>
+            <li><a href="#courses" class="site-footer-link">Divemaster</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4 class="footer-heading">Contact</h4>
-          <ul class="footer-links">
-            <li>123 Beach Road, Phuket</li>
-            <li>+66 123 456 789</li>
-            <li>info@divebuddy.smo</li>
+        <div class="site-footer-nav">
+          <h4 class="site-footer-heading">Contact</h4>
+          <ul class="site-footer-list">
+            <li class="site-footer-info">📍 123 Beach Road, Phuket</li>
+            <li class="site-footer-info">📞 +66 123 456 789</li>
+            <li class="site-footer-info">✉️ info@divebuddy.smo</li>
           </ul>
         </div>
       </div>
-
-      <!-- Mobile Footer - Simplified Version -->
-      <div class="footer-mobile">
-        <div class="footer-bottom-mobile">
-          <p>&copy; 2024 DiveBuddy.SMO. All rights reserved.</p>
-          <div class="footer-social">
-            <a href="#" class="social-link">Facebook</a>
-            <a href="#" class="social-link">Instagram</a>
-            <a href="#" class="social-link">YouTube</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Desktop Footer - Full Version -->
-      <div class="footer-desktop">
-        <div class="footer-bottom">
-          <p>&copy; 2024 DiveBuddy.SMO. All rights reserved.</p>
-          <div class="footer-social">
-            <a href="#" class="social-link">Facebook</a>
-            <a href="#" class="social-link">Instagram</a>
-            <a href="#" class="social-link">YouTube</a>
-          </div>
+      <div class="site-footer-bottom">
+        <p class="site-footer-copy">&copy; 2024 DiveBuddy.SMO. All rights reserved.</p>
+        <div class="site-footer-social">
+          <a href="#" class="site-footer-social-link">Facebook</a>
+          <a href="#" class="site-footer-social-link">Instagram</a>
+          <a href="#" class="site-footer-social-link">YouTube</a>
         </div>
       </div>
     </div>
@@ -64,160 +48,113 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-.footer {
+.site-footer {
   background: var(--blackblue);
   color: var(--white);
-  padding: var(--pad-section) 0;
+  padding: var(--pad-section) 0 var(--gap-md);
 }
 
-.footer-grid {
+.site-footer-top {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: var(--gap-md);
-  margin-bottom: var(--gap-xl);
+  padding-bottom: var(--gap-md);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-title {
-  font-size: var(--font-md);
-  font-weight: 700;
-  margin-bottom: var(--gap-sm);
+.site-footer-logo {
+  font-size: var(--font-lg);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: var(--gap-xs);
 }
 
-.footer-desc {
-  color: var(--lightgray);
+.site-footer-tagline {
   font-size: var(--font-sm);
+  color: rgba(255, 255, 255, 0.5);
   line-height: 1.6;
+  max-width: 300px;
 }
 
-.footer-heading {
-  font-size: var(--font-xs);
-  font-weight: 700;
-  margin-bottom: var(--gap-sm);
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: var(--gap-sm);
-}
-
-.footer-links a {
-  color: var(--lightgray);
+.site-footer-heading {
   font-size: var(--font-sm);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--gap-sm);
+}
+
+.site-footer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xs);
+}
+
+.site-footer-link {
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
+.site-footer-link:hover {
   color: var(--orange);
 }
 
-.footer-bottom {
-  padding-top: var(--gap-md);
-  border-top: 1px solid var(--deepblue);
+.site-footer-info {
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.site-footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  padding-top: var(--gap-md);
+}
+
+.site-footer-copy {
+  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.site-footer-social {
+  display: flex;
   gap: var(--gap-sm);
 }
 
-.footer-bottom p {
-  color: var(--lightgray);
+.site-footer-social-link {
   font-size: var(--font-xs);
-}
-
-.footer-social {
-  display: flex;
-  gap: var(--gap-md);
-}
-
-.social-link {
-  color: var(--lightgray);
-  font-size: var(--font-xs);
+  color: rgba(255, 255, 255, 0.5);
   transition: color 0.3s ease;
 }
 
-.social-link:hover {
+.site-footer-social-link:hover {
   color: var(--orange);
 }
 
-/* Footer visibility control */
-.footer-mobile {
-  display: none;
-}
-
-.footer-desktop {
-  display: block;
-}
-
-@media (max-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--gap-md);
-  }
-}
-
 @media (max-width: 768px) {
-  .footer-grid {
-    display: none;
+  .site-footer-top {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .footer-mobile {
-    display: block;
-  }
-
-  .footer-desktop {
-    display: none;
-  }
-
-  .footer-bottom-mobile {
-    padding: var(--gap-sm) 0;
-    border-top: 1px solid var(--deepblue);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--gap-sm);
-    text-align: center;
-  }
-
-  .footer-bottom-mobile p {
-    color: var(--lightgray);
-    font-size: var(--font-xs);
-    order: 2;
-  }
-
-  .footer-mobile .footer-social {
-    justify-content: center;
-    gap: var(--gap-sm);
-    order: 1;
-  }
-
-  .footer {
-    padding: var(--gap-sm) 0;
+  .site-footer-brand {
+    grid-column: span 2;
   }
 }
 
 @media (max-width: 480px) {
-  .footer {
-    padding: var(--gap-md) 0 var(--gap-sm);
+  .site-footer-top {
+    grid-template-columns: 1fr;
   }
 
-  .footer-grid {
+  .site-footer-brand {
+    grid-column: auto;
+  }
+
+  .site-footer-bottom {
+    flex-direction: column;
     gap: var(--gap-sm);
-  }
-
-  .footer-title,
-  .footer-heading {
-    font-size: var(--font-sm);
-  }
-
-  .footer-desc,
-  .footer-links a,
-  .footer-bottom p,
-  .social-link {
-    font-size: var(--font-xs);
+    text-align: center;
   }
 }
 </style>

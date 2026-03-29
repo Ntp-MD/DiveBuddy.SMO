@@ -2,51 +2,30 @@
   <section class="section destinations" id="destinations">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Popular Dive Destinations</h2>
-        <p class="section-subtitle">Explore the world's most breathtaking underwater paradises</p>
+        <h2 class="section-title">Top Dive Destinations</h2>
+        <p class="section-subtitle">Handpicked underwater paradises across Thailand</p>
       </div>
       <div class="destinations-grid">
-        <div v-for="destination in destinations" :key="destination.id" class="destination-card">
-          <div class="card-image-wrapper">
-            <img :src="destination.image" :alt="destination.name" class="card-image" />
-            <div class="card-overlay">
-              <div class="card-badge">{{ destination.badge }}</div>
-              <div class="card-rating">
-                <div class="stars">
-                  <span v-for="n in 5" :key="n" class="star" :class="{ filled: n <= 4 }">★</span>
-                </div>
-                <span class="rating-text">(4.8)</span>
-              </div>
+        <article v-for="destination in destinations" :key="destination.id" class="dest-card">
+          <div class="dest-card-image">
+            <img :src="destination.image" :alt="destination.name" />
+            <span class="dest-card-badge">{{ destination.badge }}</span>
+            <span class="dest-card-level" :class="destination.difficulty?.toLowerCase()">{{ destination.difficulty || "All Levels" }}</span>
+          </div>
+          <div class="dest-card-body">
+            <h3 class="dest-card-name">{{ destination.name }}</h3>
+            <p class="dest-card-desc">{{ destination.description }}</p>
+            <div class="dest-card-meta">
+              <span class="dest-card-stat">🤿 {{ destination.depth || "5-30m" }}</span>
+              <span class="dest-card-stat">⏱ {{ destination.duration || "45min" }}</span>
+              <span class="dest-card-stat">👥 {{ destination.groupSize || "Max 8" }}</span>
+            </div>
+            <div class="dest-card-action">
+              <span class="dest-card-price">${{ destination.price }}</span>
+              <button class="dest-card-btn">Book Now</button>
             </div>
           </div>
-          <div class="card-content">
-            <div class="card-header">
-              <h3 class="card-title">{{ destination.name }}</h3>
-              <div class="card-difficulty" :class="destination.difficulty?.toLowerCase()">
-                {{ destination.difficulty || "All Levels" }}
-              </div>
-            </div>
-            <p class="card-desc">{{ destination.description }}</p>
-            <div class="card-features">
-              <span class="feature-tag">
-                {{ destination.depth || "5-30m" }}
-              </span>
-              <span class="feature-tag">
-                {{ destination.duration || "45min" }}
-              </span>
-              <span class="feature-tag">
-                {{ destination.groupSize || "Max 8" }}
-              </span>
-            </div>
-            <div class="card-footer">
-              <div class="price-wrapper">
-                <span class="price-label">From</span>
-                <span class="card-price">${{ destination.price }}</span>
-              </div>
-              <button class="card-btn">Explore →</button>
-            </div>
-          </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -143,182 +122,118 @@ const destinations: Destination[] = [
 </script>
 
 <style scoped>
-.destinations-grid {
-  --gap-base: var(--gap-md);
-  display: grid;
-  gap: var(--gap-base);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(
-      clamp(
-        calc(100% / 3 - var(--gap-base)),
-        (1200px - 100vw) * 999,
-        clamp(calc(100% / 3 - var(--gap-base)), (992px - 100vw) * 999, clamp(calc(100% / 2 - var(--gap-base)), (480px - 100vw) * 999, 100%))
-      ),
-      1fr
-    )
-  );
-}
-
 .destinations {
-  background: linear-gradient(180deg, var(--lightgray) 0%, var(--white) 100%);
-  padding: var(--pad-section) 0;
+  background: var(--white);
 }
 
-.destination-card {
+.destinations-grid {
+  display: grid;
+  gap: var(--gap-md);
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+.dest-card {
   background: var(--white);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--lightgray);
   transition: all 0.3s ease;
-  position: relative;
 }
 
-.destination-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+.dest-card:hover {
+  border-color: var(--orange);
+  box-shadow: 0 12px 32px var(--shadow-deepblue);
+  transform: translateY(-4px);
 }
 
-.card-image-wrapper {
+.dest-card-image {
   position: relative;
-  height: 240px;
+  height: 220px;
   overflow: hidden;
 }
 
-.card-image {
+.dest-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
-.destination-card:hover .card-image {
-  transform: scale(1.08);
+.dest-card:hover .dest-card-image img {
+  transform: scale(1.06);
 }
 
-.card-overlay {
+.dest-card-badge {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: var(--gap-sm);
-}
-
-.card-badge {
+  top: var(--gap-sm);
+  left: var(--gap-sm);
   background: var(--orange);
   color: var(--white);
-  padding: var(--gap-xs) var(--gap-sm);
-  border-radius: var(--radius-md);
+  padding: calc(var(--gap-xs) * 0.5) var(--gap-xs);
+  border-radius: var(--radius-sm);
   font-size: var(--font-xs);
-  font-weight: 600;
-  align-self: flex-start;
-  backdrop-filter: blur(10px);
-}
-
-.card-rating {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-xs);
-  align-self: flex-end;
-  background: rgba(255, 255, 255, 0.9);
-  padding: var(--gap-xs) var(--gap-sm);
-  border-radius: var(--radius-md);
-  backdrop-filter: blur(10px);
-}
-
-.stars {
-  display: flex;
-  gap: calc(var(--gap-xs) * 0.5);
-}
-
-.star {
-  color: var(--lightgray);
-  font-size: var(--font-xs);
-}
-
-.star.filled {
-  color: var(--orange);
-}
-
-.rating-text {
-  font-size: var(--font-xs);
-  color: var(--gray);
-  font-weight: 600;
-}
-
-.card-content {
-  padding: var(--gap-md);
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--gap-sm);
-}
-
-.card-title {
-  font-size: var(--font-lg);
   font-weight: 700;
-  color: var(--darkblue);
-  margin: 0;
 }
 
-.card-difficulty {
-  padding: var(--gap-xs) var(--gap-sm);
-  border-radius: var(--radius-md);
+.dest-card-level {
+  position: absolute;
+  top: var(--gap-sm);
+  right: var(--gap-sm);
+  padding: calc(var(--gap-xs) * 0.5) var(--gap-xs);
+  border-radius: var(--radius-sm);
   font-size: var(--font-xs);
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.card-difficulty.beginner {
+.dest-card-level.beginner {
   background: var(--lightgray);
   color: var(--darkblue);
 }
 
-.card-difficulty.advanced {
-  background: var(--orange);
-  color: var(--white);
-}
-
-.card-difficulty.expert {
+.dest-card-level.advanced {
   background: var(--darkblue);
   color: var(--white);
 }
 
-.card-desc {
-  font-size: var(--font-sm);
-  color: var(--gray);
-  line-height: 1.6;
-  margin-bottom: var(--gap-md);
+.dest-card-level.expert {
+  background: var(--blackblue);
+  color: var(--white);
 }
 
-.card-features {
+.dest-card-body {
+  padding: var(--gap-sm);
+}
+
+.dest-card-name {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--darkblue);
+  margin-bottom: var(--gap-xs);
+}
+
+.dest-card-desc {
+  font-size: var(--font-xs);
+  color: var(--gray);
+  line-height: 1.6;
+  margin-bottom: var(--gap-sm);
+}
+
+.dest-card-meta {
   display: flex;
   gap: var(--gap-sm);
-  margin-bottom: var(--gap-md);
+  margin-bottom: var(--gap-sm);
   flex-wrap: wrap;
 }
 
-.feature-tag {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-xs);
-  padding: var(--gap-xs) var(--gap-sm);
-  background: var(--lightgray);
-  border-radius: var(--radius-sm);
+.dest-card-stat {
   font-size: var(--font-xs);
-  color: var(--gray);
+  color: var(--color2);
   font-weight: 500;
 }
 
-.card-footer {
+.dest-card-action {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -326,93 +241,38 @@ const destinations: Destination[] = [
   border-top: 1px solid var(--lightgray);
 }
 
-.price-wrapper {
-  display: flex;
-  align-items: baseline;
-  gap: var(--gap-xs);
-}
-
-.price-label {
-  font-size: var(--font-xs);
-  color: var(--gray);
-}
-
-.card-price {
+.dest-card-price {
   font-size: var(--font-lg);
-  font-weight: 700;
+  font-weight: 800;
   color: var(--orange);
 }
 
-.card-btn {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-xs);
+.dest-card-btn {
   background: var(--darkblue);
   color: var(--white);
   border-radius: var(--radius-md);
-  font-size: var(--font-sm);
-  font-weight: 600;
+  font-size: var(--font-xs);
+  font-weight: 700;
   transition: all 0.3s ease;
 }
 
-.card-btn:hover {
+.dest-card-btn:hover {
   background: var(--orange);
-  transform: translateX(2px);
 }
 
-@media (max-width: 768px) and (orientation: portrait) {
-  .card-image-wrapper {
-    height: 220px;
-  }
-
-  .card-content {
-    padding: var(--gap-sm);
-  }
-
-  .card-title {
-    font-size: var(--font-md);
-  }
-
-  .card-desc {
-    font-size: var(--font-sm);
-  }
-
-  .card-features {
-    justify-content: space-between;
-    gap: var(--gap-sm);
-  }
-}
-
-@media (max-width: 1023px) and (orientation: landscape) {
-  .card-image-wrapper {
-    height: 200px;
+@media (max-width: 768px) {
+  .destinations-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 480px) {
-  .card-image-wrapper {
+  .destinations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dest-card-image {
     height: 180px;
-  }
-
-  .card-content {
-    padding: var(--gap-sm);
-  }
-
-  .card-title {
-    font-size: var(--font-md);
-  }
-
-  .card-desc {
-    font-size: var(--font-xs);
-  }
-
-  .card-features {
-    gap: var(--gap-xs);
-  }
-
-  .feature-tag {
-    font-size: var(--font-xs);
-    padding: calc(var(--gap-xs) * 0.5) var(--gap-xs);
   }
 }
 </style>

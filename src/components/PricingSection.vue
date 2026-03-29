@@ -2,36 +2,21 @@
   <section class="section pricing" id="pricing">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Choose Your Adventure</h2>
-        <p class="section-subtitle">Flexible pricing plans for every diving enthusiast</p>
+        <h2 class="section-title">Dive Packages</h2>
+        <p class="section-subtitle">Transparent pricing for every level of adventure</p>
       </div>
       <div class="pricing-grid">
-        <div class="pricing-card card" v-for="plan in pricingPlans" :key="plan.id" :class="{ 'pricing-card-popular': plan.popular }">
-          <div v-if="plan.popular" class="popular-badge">
-            <span class="popular-text">Most Popular</span>
+        <div v-for="plan in pricingPlans" :key="plan.id" :class="['price-card', plan.popular && 'price-card-featured']">
+          <div v-if="plan.popular" class="price-card-ribbon">Best Value</div>
+          <h3 class="price-card-name">{{ plan.name }}</h3>
+          <div class="price-card-amount">
+            <span class="price-card-dollar">$</span>{{ plan.price }}<span class="price-card-period">{{ plan.period }}</span>
           </div>
-          <div class="pricing-header">
-            <h3 class="plan-name">{{ plan.name }}</h3>
-            <div class="plan-price">
-              <span class="price-currency">$</span>
-              <span class="price-amount">{{ plan.price }}</span>
-              <span class="price-period">{{ plan.period }}</span>
-            </div>
-            <p class="plan-description">{{ plan.description }}</p>
-          </div>
-          <div class="pricing-features">
-            <ul class="features-list">
-              <li class="feature-item" v-for="feature in plan.features" :key="feature">
-                <span class="feature-check">✓</span>
-                <span class="feature-text">{{ feature }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="pricing-footer">
-            <button class="plan-btn" :class="{ 'plan-btn-popular': plan.popular }">
-              {{ plan.buttonText }}
-            </button>
-          </div>
+          <p class="price-card-desc">{{ plan.description }}</p>
+          <ul class="price-card-list">
+            <li v-for="feature in plan.features" :key="feature" class="price-card-feature"><span class="price-card-check">✓</span>{{ feature }}</li>
+          </ul>
+          <button :class="['price-card-btn', plan.popular && 'price-card-btn-featured']">{{ plan.buttonText }}</button>
         </div>
       </div>
     </div>
@@ -126,200 +111,142 @@ const pricingPlans: PricingPlan[] = [
 }
 
 .pricing-grid {
-  --gap-base: var(--gap-md);
   display: grid;
-  gap: var(--gap-base);
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(
-      clamp(
-        calc(100% / 4 - var(--gap-base)),
-        (1200px - 100vw) * 999,
-        clamp(calc(100% / 3 - var(--gap-base)), (992px - 100vw) * 999, clamp(calc(100% / 2 - var(--gap-base)), (480px - 100vw) * 999, 100%))
-      ),
-      1fr
-    )
-  );
+  gap: var(--gap-md);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.pricing-card {
+.price-card {
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: var(--gap-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--lightgray);
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
-  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
 }
 
-.pricing-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px var(--shadow-deepblue);
 }
 
-.pricing-card-popular {
+.price-card-featured {
   border-color: var(--orange);
-  transform: scale(1.05);
+  border-width: 2px;
 }
 
-.pricing-card-popular:hover {
-  transform: scale(1.05) translateY(-8px);
-}
-
-.popular-badge {
+.price-card-ribbon {
   position: absolute;
   top: -1px;
-  right: 20px;
+  right: var(--gap-sm);
   background: var(--orange);
   color: var(--white);
-  padding: var(--gap-xs) var(--gap-sm);
+  padding: calc(var(--gap-xs) * 0.5) var(--gap-xs);
   font-size: var(--font-xs);
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 0 0 var(--radius-sm) var(--radius-sm);
-  box-shadow: 0 4px 12px var(--shadow-orange);
-}
-
-.popular-text {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.pricing-header {
-  text-align: center;
-  margin-bottom: var(--gap-md);
-}
-
-.plan-name {
-  font-size: var(--font-lg);
+.price-card-name {
+  font-size: var(--font-md);
   font-weight: 700;
   color: var(--darkblue);
-  margin: var(--gap-sm) 0;
+  margin-bottom: var(--gap-xs);
 }
 
-.plan-price {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  margin-bottom: var(--gap-sm);
-}
-
-.price-currency {
-  font-size: var(--font-md);
-  font-weight: 600;
-  color: var(--gray);
-}
-
-.price-amount {
+.price-card-amount {
   font-size: var(--font-xl);
   font-weight: 800;
   color: var(--orange);
-  margin: 0 var(--gap-xs);
+  margin-bottom: var(--gap-xs);
 }
 
-.price-period {
+.price-card-dollar {
+  font-size: var(--font-md);
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.price-card-period {
+  font-size: var(--font-xs);
+  color: var(--gray);
+  font-weight: 500;
+  margin-left: var(--gap-xs);
+}
+
+.price-card-desc {
   font-size: var(--font-sm);
   color: var(--gray);
+  line-height: 1.5;
+  margin-bottom: var(--gap-sm);
 }
 
-.plan-description {
-  font-size: var(--font-sm);
-  color: var(--gray);
-  line-height: 1.6;
-}
-
-.pricing-features {
-  margin-bottom: var(--gap-md);
-}
-
-.features-list {
+.price-card-list {
   list-style: none;
+  margin-bottom: var(--gap-md);
+  flex: 1;
 }
 
-.feature-item {
+.price-card-feature {
   display: flex;
   align-items: center;
+  gap: var(--gap-xs);
   padding: var(--gap-xs) 0;
+  font-size: var(--font-sm);
+  color: var(--deepblue);
   border-bottom: 1px solid var(--lightgray);
 }
 
-.feature-item:last-child {
+.price-card-feature:last-child {
   border-bottom: none;
 }
 
-.feature-check {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: calc(var(--gap-sm) * 1.25);
-  height: calc(var(--gap-sm) * 1.25);
-  background: var(--orange);
-  color: var(--white);
-  border-radius: 50%;
-  font-size: var(--font-xs);
+.price-card-check {
+  color: var(--orange);
   font-weight: 700;
-  margin-right: var(--gap-sm);
   flex-shrink: 0;
 }
 
-.feature-text {
-  font-size: var(--font-sm);
-  color: var(--deepblue);
-  line-height: 1.5;
-}
-
-.pricing-footer {
-  text-align: center;
-}
-
-.plan-btn {
+.price-card-btn {
   width: 100%;
-  font-size: var(--font-md);
-  font-weight: 600;
-  display: inline-block;
-  text-align: center;
-  border-radius: var(--radius-md);
-  transition: all 0.3s ease;
   background: var(--white);
   color: var(--darkblue);
   border: 2px solid var(--darkblue);
-  cursor: pointer;
+  border-radius: var(--radius-md);
+  font-size: var(--font-sm);
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
-.plan-btn:hover {
+.price-card-btn:hover {
   background: var(--darkblue);
   color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--shadow-orange);
 }
 
-.plan-btn-popular {
+.price-card-btn-featured {
   background: var(--orange);
   color: var(--white);
   border-color: var(--orange);
 }
 
-.plan-btn-popular:hover {
+.price-card-btn-featured:hover {
   background: var(--darkblue);
   border-color: var(--darkblue);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--shadow-orange);
-}
-
-@media (max-width: 768px) {
-  .pricing-card {
-    padding: var(--gap-md);
-  }
 }
 
 @media (max-width: 480px) {
-  .pricing-card {
+  .price-card {
     padding: var(--gap-sm);
   }
 
-  .price-amount {
+  .price-card-amount {
     font-size: var(--font-lg);
   }
 }
