@@ -79,7 +79,7 @@ const categories = ["All", "Marine Life", "Coral Reefs", "Cave Diving", "Deep Se
 
 const images: GalleryImage[] = [
   {
-    url: "/DiveBuddy.SMO/images/vibrant-coral-reefs.jpg",
+    url: "/images/vibrant-coral-reefs.jpg",
     title: "Vibrant Coral Reefs",
     description: "Explore the colorful underwater gardens of Thailand",
     category: "Coral Reefs",
@@ -87,7 +87,7 @@ const images: GalleryImage[] = [
     likes: "89",
   },
   {
-    url: "/DiveBuddy.SMO/images/marine-life-turtles.jpg",
+    url: "/images/marine-life-turtles.jpg",
     title: "Marine Life Encounters",
     description: "Swimming with majestic sea turtles in their natural habitat",
     category: "Marine Life",
@@ -95,7 +95,7 @@ const images: GalleryImage[] = [
     likes: "156",
   },
   {
-    url: "/DiveBuddy.SMO/images/2273.jpg",
+    url: "/images/2273.jpg",
     title: "Cave Exploration",
     description: "Discovering hidden underwater caverns and tunnels",
     category: "Cave Diving",
@@ -103,7 +103,7 @@ const images: GalleryImage[] = [
     likes: "124",
   },
   {
-    url: "/DiveBuddy.SMO/images/29626.jpg",
+    url: "/images/29626.jpg",
     title: "Deep Blue Adventures",
     description: "Exploring the mysteries of the deep ocean",
     category: "Deep Sea",
@@ -111,7 +111,7 @@ const images: GalleryImage[] = [
     likes: "201",
   },
   {
-    url: "/DiveBuddy.SMO/images/franziska_stier-diver-9328628_1280.jpg",
+    url: "/images/franziska_stier-diver-9328628_1280.jpg",
     title: "Island Hopping",
     description: "Multiple dive sites around tropical islands",
     category: "Coral Reefs",
@@ -119,7 +119,7 @@ const images: GalleryImage[] = [
     likes: "98",
   },
   {
-    url: "/DiveBuddy.SMO/images/joakant-fish-378286_1280.jpg",
+    url: "/images/joakant-fish-378286_1280.jpg",
     title: "Night Dive Magic",
     description: "Bioluminescent creatures under moonlight",
     category: "Night Dive",
@@ -127,7 +127,7 @@ const images: GalleryImage[] = [
     likes: "178",
   },
   {
-    url: "/DiveBuddy.SMO/images/joakant-lemon-butterflyfish-380037_1280.jpg",
+    url: "/images/joakant-lemon-butterflyfish-380037_1280.jpg",
     title: "Gentle Giants",
     description: "Once-in-a-lifetime whale shark encounter",
     category: "Marine Life",
@@ -135,7 +135,7 @@ const images: GalleryImage[] = [
     likes: "342",
   },
   {
-    url: "/DiveBuddy.SMO/images/siamways-thailand-10122355_1920.jpg",
+    url: "/images/siamways-thailand-10122355_1920.jpg",
     title: "Coral Paradise",
     description: "Vibrant coral gardens teeming with tropical fish",
     category: "Coral Reefs",
@@ -143,7 +143,7 @@ const images: GalleryImage[] = [
     likes: "67",
   },
   {
-    url: "/DiveBuddy.SMO/images/2216.jpg",
+    url: "/images/2216.jpg",
     title: "Fish Symphony",
     description: "Thousands of fish moving in perfect harmony",
     category: "Marine Life",
@@ -151,7 +151,7 @@ const images: GalleryImage[] = [
     likes: "287",
   },
   {
-    url: "/DiveBuddy.SMO/images/2272.jpg",
+    url: "/images/2272.jpg",
     title: "Abyss Explorer",
     description: "Deep diving into the mysterious blue abyss",
     category: "Deep Sea",
@@ -159,7 +159,7 @@ const images: GalleryImage[] = [
     likes: "198",
   },
   {
-    url: "/DiveBuddy.SMO/images/reef-rainbow-coral.jpg",
+    url: "/images/reef-rainbow-coral.jpg",
     title: "Reef Rainbow",
     description: "Colorful tropical reef with diverse marine ecosystem",
     category: "Coral Reefs",
@@ -167,7 +167,7 @@ const images: GalleryImage[] = [
     likes: "145",
   },
   {
-    url: "/DiveBuddy.SMO/images/u_4pyuk3butj-nature-10144693_1280.jpg",
+    url: "/images/u_4pyuk3butj-nature-10144693_1280.jpg",
     title: "Manta Dance",
     description: "Graceful manta rays gliding through ocean currents",
     category: "Marine Life",
