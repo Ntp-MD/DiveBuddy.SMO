@@ -45,23 +45,6 @@
   border: 0;
 }
 
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 6px;
-  background: var(--orange);
-  color: var(--white);
-  padding: 8px;
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-  z-index: 1000;
-  transition: top 0.3s ease;
-}
-
-.skip-link:focus {
-  top: 6px;
-}
-
 /* Card Utility */
 .card {
   background: var(--white);

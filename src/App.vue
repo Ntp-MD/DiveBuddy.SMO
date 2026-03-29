@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
     <NavBar />
-    <main id="main-content" role="main">
+    <main>
       <HeroSection />
       <SearchSection />
       <TrustBadges />
