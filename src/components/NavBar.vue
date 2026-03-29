@@ -185,7 +185,7 @@ onUnmounted(() => {
 }
 
 .nav-menu a:hover {
-  color: var(--orange);
+  color: var(--white);
 }
 
 .nav-actions {

@@ -148,4 +148,21 @@
     white-space: nowrap;
   }
 }
+
+@media (max-width: 480px) {
+  .search-bar-inner {
+    grid-template-columns: 1fr;
+    gap: var(--gap-xs);
+  }
+
+  .search-tags {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap-xs);
+  }
+
+  .search-tag {
+    white-space: nowrap;
+  }
+}
 </style>

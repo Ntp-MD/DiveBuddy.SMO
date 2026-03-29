@@ -229,13 +229,127 @@
   box-shadow: 0 8px 20px var(--shadow-orange);
 }
 
-@media (max-width: 768px) {
+/* Small Mobile */
+@media (max-width: 480px) {
   .contact-split {
     grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  .contact-left {
+    padding: var(--gap-md);
+  }
+
+  .contact-right {
+    padding: var(--gap-md);
+  }
+
+  .contact-left-heading {
+    font-size: var(--font-lg);
+  }
+
+  .contact-left-desc {
+    font-size: var(--font-sm);
+  }
+
+  .contact-form-group {
+    margin-bottom: var(--gap-sm);
+  }
+
+  .contact-form-submit {
+    width: 100%;
   }
 
   .contact-form-row {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Large Mobile */
+@media (min-width: 481px) and (max-width: 767px) {
+  .contact-split {
+    grid-template-columns: 1fr;
+    gap: var(--gap-lg);
+  }
+
+  .contact-left {
+    padding: calc(var(--gap-md) * 1.2);
+  }
+
+  .contact-right {
+    padding: calc(var(--gap-md) * 1.2);
+  }
+
+  .contact-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .contact-split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-lg);
+  }
+
+  .contact-left {
+    padding: var(--gap-lg);
+  }
+
+  .contact-right {
+    padding: var(--gap-lg);
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .contact-split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-xl);
+  }
+
+  .contact-left {
+    padding: var(--gap-lg);
+  }
+
+  .contact-right {
+    padding: var(--gap-lg);
+  }
+}
+
+/* Small Desktop */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .contact-split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-left {
+    padding: calc(var(--gap-lg) * 1.2);
+  }
+
+  .contact-right {
+    padding: calc(var(--gap-lg) * 1.2);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .contact-split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap-xl);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .contact-left {
+    padding: calc(var(--gap-lg) * 1.5);
+  }
+
+  .contact-right {
+    padding: calc(var(--gap-lg) * 1.5);
   }
 }
 </style>

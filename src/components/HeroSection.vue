@@ -115,9 +115,130 @@
   color: var(--white);
 }
 
-@media (max-width: 768px) {
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+    padding: var(--gap-sm);
+  }
+
+  .hero-content {
+    padding: var(--gap-md);
+  }
+
+  .hero-title {
+    font-size: var(--font-lg);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-sm);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--gap-sm);
+  }
+
+  .btn-explore,
+  .btn-booknow {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Large Mobile */
+@media (min-width: 481px) and (max-width: 767px) {
+  .hero {
+    height: 65vh;
+    padding: var(--gap-md);
+  }
+
+  .hero-content {
+    padding: var(--gap-lg);
+  }
+
+  .hero-title {
+    font-size: calc(var(--font-xl) * 1.1);
+  }
+
+  .hero-buttons {
+    gap: var(--gap-md);
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
   .hero {
     height: 70vh;
+    padding: var(--gap-md);
+  }
+
+  .hero-content {
+    padding: var(--gap-xl);
+  }
+
+  .hero-title {
+    font-size: calc(var(--font-xl) * 1.2);
+  }
+
+  .hero-subtitle {
+    font-size: calc(var(--font-md) * 1.1);
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hero {
+    height: 75vh;
+    padding: var(--gap-lg);
+  }
+
+  .hero-content {
+    padding: var(--gap-xl);
+  }
+
+  .hero-title {
+    font-size: calc(var(--font-xl) * 1.3);
+  }
+
+  .hero-buttons {
+    gap: var(--gap-lg);
+  }
+}
+
+/* Small Desktop */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .hero {
+    height: 80vh;
+    padding: var(--gap-lg);
+  }
+
+  .hero-content {
+    padding: calc(var(--gap-xl) * 1.2);
+  }
+
+  .hero-title {
+    font-size: calc(var(--font-xl) * 1.4);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .hero {
+    height: 85vh;
+    padding: var(--gap-xl);
+  }
+
+  .hero-content {
+    padding: calc(var(--gap-xl) * 1.5);
+  }
+
+  .hero-title {
+    font-size: calc(var(--font-xl) * 1.5);
+  }
+
+  .hero-subtitle {
+    font-size: calc(var(--font-md) * 1.2);
   }
 }
 </style>

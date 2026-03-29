@@ -83,25 +83,6 @@ const pricingPlans: PricingPlan[] = [
     popular: false,
     buttonText: "Learn More",
   },
-  {
-    id: 4,
-    name: "Private Charter",
-    price: 1299,
-    period: "/ day",
-    description: "Exclusive private diving experience with personalized service and luxury amenities",
-    features: [
-      "Private boat charter",
-      "Custom dive sites",
-      "Personal instructor",
-      "Gourmet meals",
-      "Premium equipment",
-      "Professional photographer",
-      "Flexible schedule",
-      "VIP service",
-    ],
-    popular: false,
-    buttonText: "Contact Us",
-  },
 ];
 </script>
 
@@ -241,13 +222,89 @@ const pricingPlans: PricingPlan[] = [
   border-color: var(--darkblue);
 }
 
+/* Small Mobile */
 @media (max-width: 480px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
   .price-card {
     padding: var(--gap-sm);
   }
 
   .price-card-amount {
     font-size: var(--font-lg);
+  }
+
+  .price-card-name {
+    font-size: var(--font-md);
+  }
+
+  .price-card-btn {
+    width: 100%;
+  }
+}
+
+/* Large Mobile */
+@media (min-width: 481px) and (max-width: 767px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: var(--gap-md);
+  }
+
+  .price-card {
+    padding: calc(var(--gap-md) * 0.9);
+  }
+}
+
+/* Tablet Portrait */
+@media (min-width: 768px) and (max-width: 991px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-md);
+  }
+
+  .price-card {
+    padding: var(--gap-md);
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-md);
+  }
+
+  .price-card {
+    padding: calc(var(--gap-md) * 1.1);
+  }
+}
+
+/* Small Desktop */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-lg);
+  }
+
+  .price-card {
+    padding: var(--gap-md);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .price-card {
+    padding: calc(var(--gap-md) * 1.2);
   }
 }
 </style>

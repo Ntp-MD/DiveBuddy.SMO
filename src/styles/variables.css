@@ -20,6 +20,8 @@
   --gap-xs: 10px;
   --gap-sm: 20px;
   --gap-md: clamp(20px, 2vw, 30px);
+  --gap-lg: clamp(30px, 3vw, 40px);
+  --gap-xl: clamp(50px, 5vw, 70px);
 
   /* Section padding */
   --pad-section: clamp(40px, 6vw, 80px);
