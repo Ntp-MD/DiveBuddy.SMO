@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "vue-tsc && vite build"
   },
   "dependencies": {
     "vue": "^3.4.21"

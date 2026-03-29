@@ -1,0 +1,11 @@
+node_modules
+.git
+.github
+dist
+.env*
+*.log
+README.md
+MANUAL-DEPLOY.md
+deploy.sh
+manual-deploy.bat
+StarndardRules

@@ -8,7 +8,7 @@ export default defineConfig({
       '@': '/src'
     }
   },
-  base: '/DiveBuddy.SMO/', // GitHub Pages repository name (case-sensitive)
+  base: '/', // Vercel deployment
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
