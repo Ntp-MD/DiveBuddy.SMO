@@ -1,13 +1,13 @@
 <template>
-  <nav :class="['navbar', isScrolled && 'navbar-scrolled']" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <div class="nav-logo">
+  <nav :class="['nav-section', isScrolled && 'nav-section--scrolled']" role="navigation" aria-label="Main navigation">
+    <div class="nav-section__container">
+      <div class="nav-section__logo">
         <a href="/" aria-label="DiveBuddy.SMO Home">DiveBuddy</a>
       </div>
       <button
-        class="mobile-toggle"
+        class="nav-section__toggle"
         @click="toggleMobileMenu"
-        :class="['mobile-toggle', isMobileMenuOpen && 'active']"
+        :class="['nav-section__toggle', isMobileMenuOpen && 'nav-section__toggle--active']"
         aria-label="Toggle mobile menu"
         :aria-expanded="isMobileMenuOpen"
       >
@@ -15,7 +15,7 @@
         <span></span>
         <span></span>
       </button>
-      <nav :class="['nav-menu', isMobileMenuOpen && 'mobile-open']" role="navigation">
+      <nav :class="['nav-section__menu', isMobileMenuOpen && 'nav-section__menu--open']" role="navigation">
         <a href="/" role="menuitem" @click="toggleMobileMenu">Home</a>
         <a href="#destinations" role="menuitem" @click="toggleMobileMenu">Destinations</a>
         <a href="#courses" role="menuitem" @click="toggleMobileMenu">Courses</a>
@@ -23,15 +23,17 @@
         <a href="#gallery" role="menuitem" @click="toggleMobileMenu">Gallery</a>
         <a href="#contact" role="menuitem" @click="toggleMobileMenu">Contact</a>
       </nav>
-      <div class="nav-actions">
-        <button v-if="!currentUser" class="nav-login" @click="showLogin" aria-label="Login to your account">Login</button>
-        <button v-else class="nav-user" @click="showDashboardModal = true" aria-label="Open user dashboard">
-          <span class="user-avatar-small">
+      <div class="nav-section__actions">
+        <button v-if="!currentUser" class="nav-section__btn nav-section__btn--login" @click="showLogin" aria-label="Login to your account">
+          Login
+        </button>
+        <button v-else class="nav-section__btn nav-section__btn--user" @click="showDashboardModal = true" aria-label="Open user dashboard">
+          <span class="nav-section__user-avatar">
             <img :src="currentUser.avatar" :alt="`${currentUser.firstName} ${currentUser.lastName} avatar`" />
           </span>
-          <span class="user-name">{{ currentUser.firstName }}</span>
+          <span class="nav-section__user-name">{{ currentUser.firstName }}</span>
         </button>
-        <button class="nav-cta" aria-label="Book a diving trip">
+        <button class="nav-section__btn nav-section__btn--cta" aria-label="Book a diving trip">
           <a href="#contact">Book Now</a>
         </button>
       </div>
@@ -105,7 +107,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.navbar {
+.nav-section {
   position: fixed;
   top: 0;
   left: 0;
@@ -113,17 +115,17 @@ onUnmounted(() => {
   background-color: transparent;
   z-index: 1000;
   padding: var(--gap-md) 0;
-  transition: all 0.4s ease;
+  transition: var(--transition-normal);
 }
 
-.navbar-scrolled {
+.nav-section--scrolled {
   background-color: rgba(9, 30, 35, 0.85);
   backdrop-filter: blur(12px);
   padding: var(--gap-xs) 0;
-  box-shadow: 0 2px 20px var(--shadow-deepblue);
+  box-shadow: var(--shadow-lg);
 }
 
-.nav-container {
+.nav-section__container {
   max-width: 1600px;
   display: grid;
   grid-template-columns: 30% auto 30%;
@@ -132,14 +134,14 @@ onUnmounted(() => {
   padding: 0 var(--pad-container);
 }
 
-.nav-logo a {
+.nav-section__logo a {
   font-size: var(--font-xl);
   font-weight: 700;
-  color: var(--white);
+  color: var(--font-white);
   text-decoration: none;
 }
 
-.mobile-toggle {
+.nav-section__toggle {
   display: none;
   flex-direction: column;
   justify-content: space-between;
@@ -152,174 +154,149 @@ onUnmounted(() => {
   z-index: 1000;
 }
 
-.mobile-toggle span {
+.nav-section__toggle span {
   width: 100%;
   height: 2px;
-  background-color: var(--white);
-  transition: all 0.3s ease;
+  background-color: var(--font-white);
+  transition: var(--transition-normal);
   transform-origin: center;
 }
 
-.mobile-toggle.active span:nth-child(1) {
+.nav-section__toggle--active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
 
-.mobile-toggle.active span:nth-child(2) {
+.nav-section__toggle--active span:nth-child(2) {
   opacity: 0;
 }
 
-.mobile-toggle.active span:nth-child(3) {
+.nav-section__toggle--active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-.nav-menu {
+.nav-section__menu {
   display: flex;
   justify-content: space-evenly;
   width: stretch;
 }
 
-.nav-menu a {
-  color: var(--white);
+.nav-section__menu a {
+  color: var(--font-white);
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: var(--transition-normal);
 }
 
-.nav-menu a:hover {
-  color: var(--white);
+.nav-section__menu a:hover {
+  color: var(--font-white);
 }
 
-.nav-actions {
+.nav-section__actions {
   display: flex;
   gap: var(--gap-sm);
   align-items: center;
   margin-left: auto;
 }
 
-.nav-login {
-  background: var(--darkblue);
-  color: var(--white);
+.nav-section__btn {
+  padding: var(--gap-xs) var(--gap-sm);
   border-radius: var(--radius-sm);
   font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.nav-login:hover {
-  background: var(--white);
-  color: var(--darkblue);
-  transform: translateY(-2px);
-}
-
-.nav-user {
-  display: flex;
-  align-items: center;
-  gap: var(--gap-xs);
-  background: var(--orange);
-  color: var(--white);
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  padding: var(--gap-sm);
-  transition: all 0.3s ease;
+  transition: var(--transition-normal);
   cursor: pointer;
   border: none;
+  text-decoration: none;
 }
 
-.nav-user:hover {
-  background: var(--darkblue);
-  transform: translateY(-2px);
+.nav-section__btn--login {
+  background: var(--main-color-2);
+  color: var(--font-white);
 }
 
-.user-avatar-small {
-  width: calc(var(--gap-sm) * 1.5);
-  height: calc(var(--gap-sm) * 1.5);
-  border-radius: 50%;
-  overflow: hidden;
+.nav-section__btn--login:hover {
+  background: var(--main-color-3);
+}
+
+.nav-section__btn--user {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: var(--gap-sm);
+  background: var(--accent-primary);
+  color: var(--font-white);
 }
 
-.user-avatar-small img {
-  width: 100%;
-  height: 100%;
+.nav-section__btn--user:hover {
+  background: var(--accent-secondary);
+}
+
+.nav-section__user-avatar img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   object-fit: cover;
 }
 
-.user-name {
-  font-size: var(--font-sm);
-  font-weight: 600;
+.nav-section__user-name {
+  color: var(--font-white);
+  font-weight: 500;
 }
 
-.nav-cta {
-  background-color: var(--orange);
-  color: var(--white);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-sm);
-  font-weight: 600;
-  transition: all 0.3s ease;
+.nav-section__btn--cta {
+  background: var(--accent-primary);
+  color: var(--font-white);
 }
 
-.nav-cta:hover {
-  background-color: var(--darkblue);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--shadow-orange);
+.nav-section__btn--cta:hover {
+  background: var(--accent-secondary);
 }
 
-a {
-  color: var(--white);
+.nav-section__btn a {
+  color: var(--font-white);
+  text-decoration: none;
 }
 
-@media (max-width: 1023px) {
-  .mobile-toggle {
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav-section__toggle {
     display: flex;
   }
 
-  .nav-menu {
-    display: none;
+  .nav-section__menu {
     position: fixed;
     top: 0;
     right: -100%;
     width: 80%;
-    max-width: 320px;
     height: 100vh;
-    background: var(--orange);
+    background: var(--main-color-2);
     flex-direction: column;
-    padding: calc(var(--gap-md) * 2) var(--gap-md) var(--gap-md);
-    gap: var(--gap-md);
-    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: var(--gap-xl) var(--gap-lg);
+    transition: var(--transition-normal);
     z-index: 999;
-    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow-y: auto;
   }
 
-  .nav-menu.mobile-open {
-    display: flex;
+  .nav-section__menu--open {
     right: 0;
   }
 
-  .nav-menu a {
+  .nav-section__menu a {
     display: block;
     width: 100%;
-    padding: var(--gap-md);
-    border-radius: var(--radius-md);
-    color: var(--white);
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    padding: var(--gap-md) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: var(--font-lg);
   }
 
-  .nav-menu a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateX(4px);
+  .nav-section__actions {
+    position: fixed;
+    bottom: var(--gap-lg);
+    left: var(--gap-lg);
+    right: var(--gap-lg);
   }
 
-  .nav-actions {
-    display: none;
-  }
-
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .nav-section__container {
+    grid-template-columns: 1fr auto;
+    padding: 0 var(--gap-md);
   }
 }
 </style>

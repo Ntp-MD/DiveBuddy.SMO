@@ -8,8 +8,12 @@
       <h1 class="hero-title">Discover the Ocean's Wonders</h1>
       <p class="hero-subtitle">Professional diving courses and unforgettable underwater adventures</p>
       <div class="hero-buttons">
-        <button class="btn-explore"><a href="#courses">Explore Courses</a></button>
-        <button class="btn-booknow"><a href="#contact">Book Now</a></button>
+        <button class="hero-section__btn hero-section__btn--primary">
+          <a href="#courses">Explore Courses</a>
+        </button>
+        <button class="hero-section__btn hero-section__btn--secondary">
+          <a href="#contact">Book Now</a>
+        </button>
       </div>
     </div>
   </section>
@@ -41,7 +45,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-
+  background: linear-gradient(135deg, var(--deepblue) 0%, var(--blackblue) 100%);
+  opacity: 0.7;
   z-index: -1;
 }
 
@@ -60,18 +65,19 @@
 .hero-title {
   font-size: var(--font-xl);
   font-weight: 800;
-  color: var(--white);
+  color: var(--font-white);
   margin-bottom: var(--gap-md);
   line-height: 1.2;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: var(--shadow-lg);
 }
 
 .hero-subtitle {
   font-size: var(--font-lg);
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--font-white);
   margin-bottom: var(--gap-md);
   max-width: 600px;
   line-height: 1.6;
+  opacity: 0.9;
 }
 
 .hero-buttons {
@@ -79,51 +85,49 @@
   gap: var(--gap-md);
 }
 
-.btn-explore {
-  background-color: var(--orange);
-  color: var(--white);
+.hero-section__btn {
+  padding: var(--gap-sm) var(--gap-lg);
   border-radius: var(--radius-sm);
   font-size: var(--font-sm);
   font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-explore:hover {
-  background-color: var(--darkblue);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--shadow-orange);
-}
-
-.btn-booknow {
-  background-color: var(--darkblue);
-  color: var(--white);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-sm);
-  font-weight: 600;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  cursor: pointer;
+  border: none;
   display: inline-block;
 }
 
-.btn-booknow:hover {
-  background-color: var(--deepblue);
+.hero-section__btn--primary {
+  background-color: var(--accent-primary);
+  color: var(--font-white);
+}
+
+.hero-section__btn--primary:hover {
+  background-color: var(--accent-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--shadow-darkblue);
+  box-shadow: var(--shadow-lg);
 }
 
-.btn-explore a,
-.btn-booknow a {
-  color: var(--white);
+.hero-section__btn--secondary {
+  background-color: var(--main-color-2);
+  color: var(--font-white);
 }
 
-/* Small Mobile */
+.hero-section__btn--secondary:hover {
+  background-color: var(--main-color-3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-section__btn a {
+  color: var(--font-white);
+  text-decoration: none;
+}
+
+/* Mobile Responsive */
 @media (max-width: 480px) {
-  .hero {
-    height: 60vh;
-    padding: var(--gap-sm);
-  }
-
   .hero-content {
-    padding: var(--gap-md);
+    padding: 0 var(--gap-sm);
   }
 
   .hero-title {
@@ -131,7 +135,7 @@
   }
 
   .hero-subtitle {
-    font-size: var(--font-sm);
+    font-size: var(--font-md);
   }
 
   .hero-buttons {
@@ -139,106 +143,8 @@
     gap: var(--gap-sm);
   }
 
-  .btn-explore,
-  .btn-booknow {
+  .hero-section__btn {
     width: 100%;
-    text-align: center;
-  }
-}
-
-/* Large Mobile */
-@media (min-width: 481px) and (max-width: 767px) {
-  .hero {
-    height: 65vh;
-    padding: var(--gap-md);
-  }
-
-  .hero-content {
-    padding: var(--gap-lg);
-  }
-
-  .hero-title {
-    font-size: calc(var(--font-xl) * 1.1);
-  }
-
-  .hero-buttons {
-    gap: var(--gap-md);
-  }
-}
-
-/* Tablet Portrait */
-@media (min-width: 768px) and (max-width: 991px) {
-  .hero {
-    height: 70vh;
-    padding: var(--gap-md);
-  }
-
-  .hero-content {
-    padding: var(--gap-xl);
-  }
-
-  .hero-title {
-    font-size: calc(var(--font-xl) * 1.2);
-  }
-
-  .hero-subtitle {
-    font-size: calc(var(--font-md) * 1.1);
-  }
-}
-
-/* Tablet Landscape */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .hero {
-    height: 75vh;
-    padding: var(--gap-lg);
-  }
-
-  .hero-content {
-    padding: var(--gap-xl);
-  }
-
-  .hero-title {
-    font-size: calc(var(--font-xl) * 1.3);
-  }
-
-  .hero-buttons {
-    gap: var(--gap-lg);
-  }
-}
-
-/* Small Desktop */
-@media (min-width: 1200px) and (max-width: 1399px) {
-  .hero {
-    height: 80vh;
-    padding: var(--gap-lg);
-  }
-
-  .hero-content {
-    padding: calc(var(--gap-xl) * 1.2);
-  }
-
-  .hero-title {
-    font-size: calc(var(--font-xl) * 1.4);
-  }
-}
-
-/* Large Desktop */
-@media (min-width: 1400px) {
-  .hero {
-    height: 85vh;
-    padding: var(--gap-xl);
-  }
-
-  .hero-content {
-    padding: calc(var(--gap-xl) * 1.5);
-  }
-
-  .hero-title {
-    font-size: calc(var(--font-xl) * 1.5);
-  }
-
-  .hero-subtitle {
-    font-size: calc(var(--font-md) * 1.2);
   }
 }
 </style>
