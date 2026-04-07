@@ -137,7 +137,7 @@ onUnmounted(() => {
 .nav-section__logo a {
   font-size: var(--font-xl);
   font-weight: 700;
-  color: var(--font-white);
+  color: var(--white);
   text-decoration: none;
 }
 
@@ -157,7 +157,7 @@ onUnmounted(() => {
 .nav-section__toggle span {
   width: 100%;
   height: 2px;
-  background-color: var(--font-white);
+  background-color: var(--white);
   transition: var(--transition-normal);
   transform-origin: center;
 }
@@ -181,13 +181,13 @@ onUnmounted(() => {
 }
 
 .nav-section__menu a {
-  color: var(--font-white);
+  color: var(--white);
   font-weight: 500;
   transition: var(--transition-normal);
 }
 
 .nav-section__menu a:hover {
-  color: var(--font-white);
+  color: var(--white);
 }
 
 .nav-section__actions {
@@ -208,24 +208,24 @@ onUnmounted(() => {
 }
 
 .nav-section__btn--login {
-  background: var(--main-color-2);
-  color: var(--font-white);
+  background: var(--darkblue);
+  color: var(--white);
 }
 
 .nav-section__btn--login:hover {
-  background: var(--main-color-3);
+  background: var(--deepblue);
 }
 
 .nav-section__btn--user {
   display: flex;
   align-items: center;
   gap: var(--gap-sm);
-  background: var(--accent-primary);
-  color: var(--font-white);
+  background: var(--orange);
+  color: var(--white);
 }
 
 .nav-section__btn--user:hover {
-  background: var(--accent-secondary);
+  background: var(--darkblue);
 }
 
 .nav-section__user-avatar img {
@@ -236,21 +236,21 @@ onUnmounted(() => {
 }
 
 .nav-section__user-name {
-  color: var(--font-white);
+  color: var(--white);
   font-weight: 500;
 }
 
 .nav-section__btn--cta {
-  background: var(--accent-primary);
-  color: var(--font-white);
+  background: var(--orange);
+  color: var(--white);
 }
 
 .nav-section__btn--cta:hover {
-  background: var(--accent-secondary);
+  background: var(--darkblue);
 }
 
 .nav-section__btn a {
-  color: var(--font-white);
+  color: var(--white);
   text-decoration: none;
 }
 

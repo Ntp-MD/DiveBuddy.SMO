@@ -65,7 +65,7 @@
 .hero-title {
   font-size: var(--font-xl);
   font-weight: 800;
-  color: var(--font-white);
+  color: var(--white);
   margin-bottom: var(--gap-md);
   line-height: 1.2;
   text-shadow: var(--shadow-lg);
@@ -73,7 +73,7 @@
 
 .hero-subtitle {
   font-size: var(--font-lg);
-  color: var(--font-white);
+  color: var(--white);
   margin-bottom: var(--gap-md);
   max-width: 600px;
   line-height: 1.6;
@@ -98,29 +98,29 @@
 }
 
 .hero-section__btn--primary {
-  background-color: var(--accent-primary);
-  color: var(--font-white);
+  background-color: var(--orange);
+  color: var(--white);
 }
 
 .hero-section__btn--primary:hover {
-  background-color: var(--accent-secondary);
+  background-color: var(--darkblue);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 20px var(--shadow-orange);
 }
 
 .hero-section__btn--secondary {
-  background-color: var(--main-color-2);
-  color: var(--font-white);
+  background-color: var(--darkblue);
+  color: var(--white);
 }
 
 .hero-section__btn--secondary:hover {
-  background-color: var(--main-color-3);
+  background-color: var(--deepblue);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 20px var(--shadow-darkblue);
 }
 
 .hero-section__btn a {
-  color: var(--font-white);
+  color: var(--white);
   text-decoration: none;
 }
 

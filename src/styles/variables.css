@@ -1,15 +1,4 @@
 :root {
-  /* ModCodex Standard Colors */
-  --main-color-1: #000000;
-  --main-color-2: #171717;
-  --main-color-3: #262626;
-  --main-color-4: #353434;
-
-  /* Font Colors */
-  --font-white: #ffffff;
-  --font-color1: #e5e5e5;
-  --font-color2: #262626;
-
   /* Accent Colors */
   --accent-base: #171717;
   --accent-primary: #2563eb;
