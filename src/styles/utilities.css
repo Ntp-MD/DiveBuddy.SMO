@@ -1,4 +1,144 @@
-/* Layout Utilities */
+/* ========================================
+   UTILITIES & COMPONENT BASE CLASSES
+   ======================================== */
+
+/* ----------------------------------------
+   BUTTON VARIANTS
+   Usage: <button class="btn btn-primary">...</button>
+   ---------------------------------------- */
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--deepblue);
+}
+
+.btn-secondary {
+  background: var(--lightgray);
+  color: var(--darkblue);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--gray);
+  color: var(--white);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--darkblue);
+  border: 2px solid var(--gray);
+}
+.btn-outline:hover:not(:disabled) {
+  background: var(--darkblue);
+  color: var(--white);
+  border-color: var(--darkblue);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--darkblue);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: var(--lightgray);
+}
+
+.btn-danger {
+  background: var(--accent-error);
+  color: var(--white);
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--accent-error-hover);
+}
+
+.btn-success {
+  background: var(--accent-success);
+  color: var(--white);
+}
+.btn-success:hover:not(:disabled) {
+  background: var(--accent-success-hover);
+}
+
+.btn-warning {
+  background: var(--accent-warning);
+  color: var(--white);
+}
+.btn-warning:hover:not(:disabled) {
+  background: var(--accent-warning-hover);
+}
+
+/* Button Sizes */
+.btn-xs {
+  padding: 4px 8px;
+  font-size: var(--font-xs);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: var(--font-xs);
+}
+
+.btn-md {
+  padding: var(--gap-sm) var(--gap-md);
+  font-size: var(--font-sm);
+}
+
+.btn-lg {
+  padding: var(--gap-md) var(--gap-lg);
+  font-size: var(--font-md);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-icon-only {
+  padding: var(--gap-sm);
+  aspect-ratio: 1;
+}
+
+/* ----------------------------------------
+   BADGE / TAG
+   Usage: <span class="badge badge-primary">New</span>
+   ---------------------------------------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--gap-xs);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.badge-primary {
+  background: var(--orange);
+  color: var(--white);
+}
+.badge-info {
+  background: var(--accent-primary);
+  color: var(--white);
+}
+.badge-success {
+  background: var(--accent-success);
+  color: var(--white);
+}
+.badge-warning {
+  background: var(--accent-warning);
+  color: var(--white);
+}
+.badge-danger {
+  background: var(--accent-error);
+  color: var(--white);
+}
+.badge-neutral {
+  background: var(--lightgray);
+  color: var(--darkblue);
+}
+
+/* ----------------------------------------
+   LAYOUT
+   ---------------------------------------- */
 .container {
   max-width: 1400px;
   margin: 0 auto;
@@ -33,7 +173,8 @@
 }
 
 /* Accessibility */
-.sr-only {
+.sr-only,
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -45,57 +186,4 @@
   border: 0;
 }
 
-/* Card Utility */
-.card {
-  background: var(--white);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-/* Background Utilities */
-.bg-white {
-  background-color: var(--white);
-}
-
-.bg-lightgray {
-  background-color: var(--lightgray);
-}
-
-.bg-orange {
-  background-color: var(--orange);
-}
-
-.bg-darkblue {
-  background-color: var(--darkblue);
-}
-
-/* Border Utilities */
-.border-none {
-  border: none;
-}
-
-.border-md {
-  border: 2px solid var(--darkblue);
-}
-
-.rounded-sm {
-  border-radius: var(--radius-sm);
-}
-
-.rounded-md {
-  border-radius: var(--radius-md);
-}
-
-/* Shadow Utilities */
-.shadow-orange {
-  box-shadow: 0 8px 20px var(--shadow-orange);
-}
-
-.shadow-darkblue {
-  box-shadow: 0 8px 20px var(--shadow-darkblue);
-}
+/* Card base → see components.css */

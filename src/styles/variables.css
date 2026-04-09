@@ -7,6 +7,38 @@
   --accent-warning: #ea580c;
   --accent-error: #dc2626;
 
+  /* Level Colors (Course badges) */
+  --level-beginner: #22c55e;
+  --level-intermediate: #3b82f6;
+  --level-professional: #a855f7;
+
+  /* Status Colors (bg / text pairs) */
+  --status-pending-bg: #fef3c7;
+  --status-pending-text: #92400e;
+  --status-confirmed-bg: #d1fae5;
+  --status-confirmed-text: #065f46;
+  --status-cancelled-bg: #fee2e2;
+  --status-cancelled-text: #991b1b;
+  --status-info-bg: #dbeafe;
+  --status-info-text: #1e40af;
+  --status-neutral-bg: #e0e7ff;
+  --status-neutral-text: #3730a3;
+
+  /* UI Colors */
+  --star-empty: #d1d5db;
+  --star-filled: #fbbf24;
+
+  /* Chart Colors */
+  --chart-1: #004e98;
+  --chart-2: #3d7ece;
+  --chart-3: #ffa500;
+  --chart-4: #7eb8da;
+
+  /* Accent Hover (darker shade for :hover states) */
+  --accent-success-hover: #059669;
+  --accent-warning-hover: #d97706;
+  --accent-error-hover: #b91c1c;
+
   /* DiveBuddy Custom Colors (Legacy Support) */
   --orange: #ef6c33;
   --darkblue: #0c4a60;
@@ -15,9 +47,13 @@
   --gray: #64748b;
   --lightgray: #f1f5f9;
   --white: #ffffff;
-  --color1: #7c7c7c;
-  --color2: #46595f;
-  --color3: #46595f;
+
+  /* Dark Theme Colors */
+  --dark-bg: #0f172a;
+  --dark-surface: #1e293b;
+  --dark-border: #334155;
+  --dark-text: #f8fafc;
+  --dark-text-secondary: #94a3b8;
 
   /* Shadow colors */
   --shadow-orange: rgba(239, 108, 51, 0.3);
@@ -59,4 +95,7 @@
   --font-md: clamp(16px, 1.5vw, 18px);
   --font-lg: clamp(20px, 2vw, 24px);
   --font-xl: clamp(26px, 4.5vw, 36px);
+  --font-2xl: clamp(32px, 5vw, 48px);
+  --font-3xl: clamp(48px, 7vw, 64px);
+  --font-4xl: clamp(56px, 9vw, 72px);
 }

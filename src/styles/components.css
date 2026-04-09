@@ -1,0 +1,226 @@
+/* ========================================
+   REUSABLE COMPONENTS
+   Button & Card System (Inheritable)
+   ======================================== */
+
+/* ----------------------------------------
+   BUTTONS
+   ---------------------------------------- */
+
+/* Base Button — variants & sizes in utilities.css */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-xs);
+  padding: var(--gap-sm) var(--gap-md);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  line-height: 1.5;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:disabled,
+.btn.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-icon {
+  font-size: 1.2em;
+  line-height: 1;
+}
+
+.btn.is-loading {
+  position: relative;
+  color: transparent;
+}
+
+.btn.is-loading::after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 0.75s linear infinite;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----------------------------------------
+   CARDS
+   ---------------------------------------- */
+
+/* Base Card */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Card Variants */
+.card-flat {
+  box-shadow: none;
+  border: 1px solid var(--lightgray);
+}
+
+.card-elevated {
+  box-shadow: var(--shadow-lg);
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-interactive:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+/* Card Sections */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--gap-md) var(--gap-lg);
+  border-bottom: 1px solid var(--lightgray);
+}
+
+.card-title {
+  margin: 0;
+  font-size: var(--font-md);
+  font-weight: 600;
+  color: var(--darkblue);
+}
+
+.card-subtitle {
+  margin: var(--gap-xs) 0 0;
+  font-size: var(--font-sm);
+  color: var(--gray);
+}
+
+.card-body {
+  padding: var(--gap-lg);
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: var(--gap-md) var(--gap-lg);
+  border-top: 1px solid var(--lightgray);
+  background: var(--lightgray);
+}
+
+.card-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.card-media-square {
+  aspect-ratio: 1 / 1;
+}
+
+/* Card Sizes */
+.card-sm .card-body {
+  padding: var(--gap-md);
+}
+
+.card-lg .card-body {
+  padding: var(--gap-xl);
+}
+
+/* Stats Card (Dashboard specific) */
+.card-stat {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+  padding: var(--gap-lg);
+}
+
+.card-stat .card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  font-size: var(--font-lg);
+  background: var(--lightgray);
+  border-radius: var(--radius-md);
+}
+
+.card-stat .card-value {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--darkblue);
+}
+
+.card-stat .card-label {
+  font-size: var(--font-sm);
+  color: var(--gray);
+}
+
+/* ----------------------------------------
+   DARK MODE
+   ---------------------------------------- */
+[data-theme="dark"] .btn-secondary {
+  background: var(--dark-surface);
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .btn-outline {
+  color: var(--dark-text);
+  border-color: var(--dark-text-secondary);
+}
+
+[data-theme="dark"] .btn-ghost {
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .card {
+  background: var(--dark-surface);
+}
+
+[data-theme="dark"] .card-header,
+[data-theme="dark"] .card-footer {
+  border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .card-title {
+  color: var(--dark-text);
+}
+
+[data-theme="dark"] .card-subtitle {
+  color: var(--dark-text-secondary);
+}
+
+[data-theme="dark"] .card-flat {
+  border-color: var(--dark-border);
+}
+
+[data-theme="dark"] .card-stat .card-icon {
+  background: var(--dark-border);
+}
+
+[data-theme="dark"] .card-stat .card-value {
+  color: var(--dark-text);
+}

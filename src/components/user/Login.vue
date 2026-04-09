@@ -52,7 +52,7 @@
           <span v-if="isLoading">Signing in...</span>
           <span v-else>Sign In</span>
         </button>
-        <div id="login-status" class="sr-only" aria-live="polite"></div>
+        <div id="login-status" class="visually-hidden" aria-live="polite"></div>
       </form>
 
       <div class="login-footer">
@@ -62,7 +62,7 @@
         </p>
       </div>
 
-      <div class="demo-users">
+      <div class="demo-users" hidden>
         <h3 class="demo-title">Demo Users</h3>
         <div class="demo-list">
           <div class="demo-user" @click="setDemoUser('admin')"><strong>Admin:</strong> admin / admin123</div>
@@ -91,9 +91,11 @@ interface User {
   divesCount: number;
 }
 
+type SafeUser = Omit<User, "password">;
+
 const emit = defineEmits<{
   close: [];
-  login: [user: User];
+  login: [user: SafeUser];
 }>();
 
 const isLoading = ref(false);
@@ -198,7 +200,8 @@ const handleLogin = async () => {
       if (loginForm.remember) {
         localStorage.setItem("divebuddy_user", JSON.stringify(user));
       }
-      emit("login", user);
+      const { password: _, ...safeUser } = user;
+      emit("login", safeUser);
       emit("close");
     } else {
       errorMessage.value = "Invalid username or password";
@@ -280,10 +283,6 @@ const handleLogin = async () => {
 
 .login-form {
   padding: var(--gap-md);
-}
-
-.form-group {
-  margin-bottom: var(--gap-md);
 }
 
 .form-label {

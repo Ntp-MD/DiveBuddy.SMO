@@ -126,7 +126,7 @@ const badges: Badge[] = [
 }
 
 .featured-badge-icon {
-  font-size: 48px;
+  font-size: var(--font-3xl);
   margin-bottom: var(--gap-sm);
   filter: drop-shadow(0 0 20px rgba(239, 108, 51, 0.3));
 }

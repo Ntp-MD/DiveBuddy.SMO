@@ -6,11 +6,17 @@
 /* 2. Reset - HTML element resets and browser defaults */
 @import "./reset.css";
 
-/* 3. Utilities - Reusable layout and utility classes */
+/* 3. Components - Base button, card systems */
+@import "./components.css";
+
+/* 4. Utilities - Variants, badges, layout classes */
 @import "./utilities.css";
 
-/* 4. Form - Base form styles */
+/* 5. Form - Base form styles */
 @import "./form.css";
 
-/* 5. Animations - Hover effects and transitions */
+/* 6. Animations - Hover effects and transitions */
 @import "./animations.css";
+
+/* 7. Print - Print-specific styles */
+@import "./print.css";

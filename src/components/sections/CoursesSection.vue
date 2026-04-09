@@ -535,13 +535,13 @@ const selectCourse = (courseId: number) => {
 
 .course-badge.level.beginner {
   background: rgba(34, 197, 94, 0.2);
-  color: #22c55e;
+  color: var(--level-beginner);
   border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
 .course-badge.level.intermediate {
   background: rgba(59, 130, 246, 0.2);
-  color: #3b82f6;
+  color: var(--level-intermediate);
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
@@ -553,7 +553,7 @@ const selectCourse = (courseId: number) => {
 
 .course-badge.level.professional {
   background: rgba(168, 85, 247, 0.2);
-  color: #a855f7;
+  color: var(--level-professional);
   border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
@@ -779,7 +779,7 @@ const selectCourse = (courseId: number) => {
 .summary-save {
   padding: calc(var(--gap-xs) * 0.5) var(--gap-xs);
   background: rgba(34, 197, 94, 0.2);
-  color: #22c55e;
+  color: var(--level-beginner);
   border-radius: var(--radius-sm);
   font-size: var(--font-xs);
   font-weight: 700;

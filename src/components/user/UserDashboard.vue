@@ -121,7 +121,6 @@ interface User {
   id: number;
   username: string;
   email: string;
-  password: string;
   role: string;
   firstName: string;
   lastName: string;
@@ -169,19 +168,19 @@ const formatDate = (dateString: string): string => {
   return date.getFullYear().toString();
 };
 
+// TODO: Connect to user management page
 const showUserManagement = () => {
-  // Placeholder for user management functionality
-  console.log("User management");
+  /* navigate to user management */
 };
 
+// TODO: Connect to course management page
 const showCourseManagement = () => {
-  // Placeholder for course management functionality
-  console.log("Course management");
+  /* navigate to course management */
 };
 
+// TODO: Connect to booking management page
 const showBookingManagement = () => {
-  // Placeholder for booking management functionality
-  console.log("Booking management");
+  /* navigate to booking management */
 };
 </script>
 
@@ -346,13 +345,6 @@ const showBookingManagement = () => {
   padding: var(--gap-md);
 }
 
-.section-title {
-  font-size: var(--font-md);
-  font-weight: 600;
-  color: var(--darkblue);
-  margin-bottom: var(--gap-sm);
-}
-
 .certification-items {
   display: flex;
   flex-direction: column;
@@ -484,8 +476,11 @@ const showBookingManagement = () => {
 
 @media (max-width: 768px) {
   .dashboard-modal {
-    width: 95%;
-    margin: var(--gap-md);
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    margin: 0;
+    border-radius: 0;
   }
 
   .dashboard-stats {

@@ -2,7 +2,7 @@
   <nav :class="['nav-section', isScrolled && 'nav-section--scrolled']" role="navigation" aria-label="Main navigation">
     <div class="nav-section__container">
       <div class="nav-section__logo">
-        <a href="/" aria-label="DiveBuddy.SMO Home">DiveBuddy</a>
+        <router-link to="/" aria-label="DiveBuddy.SMO Home">DiveBuddy</router-link>
       </div>
       <button
         class="nav-section__toggle"
@@ -24,77 +24,40 @@
         <a href="#contact" role="menuitem" @click="toggleMobileMenu">Contact</a>
       </nav>
       <div class="nav-section__actions">
-        <button v-if="!currentUser" class="nav-section__btn nav-section__btn--login" @click="showLogin" aria-label="Login to your account">
+        <router-link
+          v-if="!authStore.isAuthenticated"
+          to="/login"
+          class="nav-section__btn nav-section__btn--login"
+          aria-label="Login to your account"
+        >
           Login
-        </button>
-        <button v-else class="nav-section__btn nav-section__btn--user" @click="showDashboardModal = true" aria-label="Open user dashboard">
-          <span class="nav-section__user-avatar">
-            <img :src="currentUser.avatar" :alt="`${currentUser.firstName} ${currentUser.lastName} avatar`" />
+        </router-link>
+        <router-link v-else to="/dashboard" class="nav-section__btn nav-section__btn--user" aria-label="Go to dashboard">
+          <span v-if="authStore.currentUser?.avatar" class="nav-section__user-avatar">
+            <img :src="authStore.currentUser.avatar" :alt="`${authStore.currentUser.firstName} avatar`" />
           </span>
-          <span class="nav-section__user-name">{{ currentUser.firstName }}</span>
-        </button>
-        <button class="nav-section__btn nav-section__btn--cta" aria-label="Book a diving trip">
-          <a href="#contact">Book Now</a>
-        </button>
+          <span class="nav-section__user-name">{{ authStore.currentUser?.firstName }}</span>
+        </router-link>
+        <a href="#contact" class="nav-section__btn nav-section__btn--cta" aria-label="Book a diving trip"> Book Now </a>
       </div>
     </div>
   </nav>
-  <Login v-if="showLoginModal" @close="closeLogin" @login="handleLogin" />
-  <UserDashboard
-    v-if="showDashboardModal && currentUser"
-    :current-user="currentUser"
-    @close="closeDashboard"
-    @logout="handleLogout"
-    @navigate="navigateToSection"
-  />
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import Login from "./Login.vue";
-import UserDashboard from "./UserDashboard.vue";
+import { useAuthStore } from "@/stores/auth";
 
+const authStore = useAuthStore();
 const isScrolled = ref(false);
-const showLoginModal = ref(false);
-const showDashboardModal = ref(false);
-const currentUser = ref<any>(null);
 const isMobileMenuOpen = ref(false);
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50;
 };
 
-const showLogin = () => {
-  showLoginModal.value = true;
-};
-
-const closeLogin = () => {
-  showLoginModal.value = false;
-};
-
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
-};
-
-const handleLogin = (user: any) => {
-  currentUser.value = user;
-  showDashboardModal.value = true;
-};
-
-const closeDashboard = () => {
-  showDashboardModal.value = false;
-};
-
-const handleLogout = () => {
-  currentUser.value = null;
-  localStorage.removeItem("divebuddy_user");
-};
-
-const navigateToSection = (section: string) => {
-  const element = document.querySelector(section);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
 };
 
 onMounted(() => {
@@ -266,7 +229,7 @@ onUnmounted(() => {
     right: -100%;
     width: 80%;
     height: 100vh;
-    background: var(--main-color-2);
+    background: var(--deepblue);
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -292,11 +255,34 @@ onUnmounted(() => {
     bottom: var(--gap-lg);
     left: var(--gap-lg);
     right: var(--gap-lg);
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav-section__container {
     grid-template-columns: 1fr auto;
     padding: 0 var(--gap-md);
+  }
+
+  /* Overlay backdrop when menu open */
+  .nav-section__menu--open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-section__btn--login,
+  .nav-section__btn--cta {
+    font-size: var(--font-xs);
+    padding: var(--gap-xs);
+  }
+
+  .nav-section__user-name {
+    display: none;
   }
 }
 </style>

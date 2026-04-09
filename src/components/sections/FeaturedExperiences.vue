@@ -330,8 +330,6 @@ const experiences: Experience[] = [
   .featured-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--gap-lg);
-    max-width: 1200px;
-    margin: 0 auto;
   }
 
   .featured-card {

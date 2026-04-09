@@ -32,8 +32,8 @@
             <div class="stats-item-content">
               <h4 class="stats-item-label">Experience</h4>
               <div class="stats-item-badges">
-                <span class="badge">PADI 5-Star</span>
-                <span class="badge">SSI Diamond</span>
+                <span class="badge badge-primary">PADI 5-Star</span>
+                <span class="badge badge-primary">SSI Diamond</span>
               </div>
               <p class="stats-item-desc">Since 2010</p>
             </div>
@@ -244,15 +244,6 @@ function animateCounter(element: HTMLElement, target: number) {
   gap: calc(var(--gap-xs) * 0.5);
   margin-bottom: calc(var(--gap-xs) * 0.5);
   flex-wrap: wrap;
-}
-
-.badge {
-  padding: 2px 8px;
-  background: rgba(239, 108, 51, 0.1);
-  color: var(--orange);
-  border-radius: var(--radius-xs);
-  font-size: var(--font-xs);
-  font-weight: 600;
 }
 
 .stats-item-desc {

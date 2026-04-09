@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "หน้าแรก",
+    "courses": "คอร์ส",
+    "destinations": "จุดหมาย",
+    "pricing": "ราคา",
+    "gallery": "แกลเลอรี่",
+    "contact": "ติดต่อ",
+    "login": "เข้าสู่ระบบ",
+    "logout": "ออกจากระบบ",
+    "bookNow": "จองเลย"
+  },
+  "hero": {
+    "title": "ค้นพบความมหัศจรรย์ใต้ทะเล",
+    "subtitle": "คอร์สดำน้ำมืออาชีพและการผจญภัยใต้น้ำที่น่าจดจำในภูเก็ต ประเทศไทย",
+    "exploreCourses": "สำรวจคอร์ส",
+    "bookNow": "จองการดำน้ำ"
+  },
+  "courses": {
+    "title": "เส้นทางการดำน้ำของคุณ",
+    "subtitle": "จากลมหายใจแรกสู่ความเชี่ยวชาญระดับมืออาชีพ - คอร์สรับรอง PADI",
+    "beginner": "ระดับเริ่มต้น",
+    "intermediate": "ระดับกลาง",
+    "advanced": "ระดับสูง",
+    "professional": "ระดับมืออาชีพ",
+    "duration": "ระยะเวลา",
+    "maxDepth": "ความลึกสูงสุด",
+    "price": "ราคา",
+    "bookNow": "จองเลย",
+    "learnMore": "ดูเพิ่มเติม"
+  },
+  "booking": {
+    "title": "จองการผจญภัยของคุณ",
+    "selectDate": "เลือกวันที่",
+    "participants": "จำนวนผู้เข้าร่วม",
+    "specialRequests": "คำขอพิเศษ",
+    "totalPrice": "ราคารวม",
+    "payNow": "ชำระเงิน",
+    "bookingConfirmed": "การจองยืนยันแล้ว!",
+    "checkEmail": "กรุณาตรวจสอบอีเมลของคุณสำหรับรายละเอียดการยืนยัน"
+  },
+  "auth": {
+    "login": "เข้าสู่ระบบ",
+    "register": "สมัครสมาชิก",
+    "email": "อีเมล",
+    "password": "รหัสผ่าน",
+    "firstName": "ชื่อ",
+    "lastName": "นามสกุล",
+    "phone": "โทรศัพท์",
+    "forgotPassword": "ลืมรหัสผ่าน?",
+    "noAccount": "ยังไม่มีบัญชี?",
+    "hasAccount": "มีบัญชีแล้ว?",
+    "welcomeBack": "ยินดีต้อนรับกลับ",
+    "createAccount": "สร้างบัญชี"
+  },
+  "footer": {
+    "contactUs": "ติดต่อเรา",
+    "followUs": "ติดตามเรา",
+    "quickLinks": "ลิงก์ด่วน",
+    "newsletter": "จดหมายข่าว"
+  },
+  "admin": {
+    "dashboard": "แดชบอร์ดแอดมิน",
+    "overview": "ภาพรวม",
+    "bookings": "การจอง",
+    "courses": "คอร์ส",
+    "schedules": "ตาราง",
+    "users": "ผู้ใช้"
+  },
+  "errors": {
+    "invalidCredentials": "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
+    "emailExists": "อีเมลนี้ลงทะเบียนแล้ว",
+    "requiredField": "กรุณากรอกข้อมูลในช่องนี้",
+    "serverError": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง"
+  }
+}

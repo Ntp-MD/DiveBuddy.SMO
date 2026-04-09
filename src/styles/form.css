@@ -37,25 +37,4 @@
   opacity: 1;
 }
 
-/* Input Utility */
-.input {
-  width: 100%;
-  padding: var(--gap-sm);
-  border: 2px solid var(--darkblue);
-  border-radius: var(--radius-md);
-  font-size: var(--font-sm);
-  background: var(--lightgray);
-  color: var(--deepblue);
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--orange);
-  background: var(--white);
-}
-
-.input::placeholder {
-  color: var(--gray);
-}
+/* .input alias → use .form-control instead */

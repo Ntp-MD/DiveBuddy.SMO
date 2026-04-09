@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "destinations": "Destinations",
+    "pricing": "Pricing",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "bookNow": "Book Now"
+  },
+  "hero": {
+    "title": "Discover the Ocean's Wonders",
+    "subtitle": "Professional diving courses and unforgettable underwater adventures in Phuket, Thailand",
+    "exploreCourses": "Explore Courses",
+    "bookNow": "Book Your Dive"
+  },
+  "courses": {
+    "title": "Your Diving Journey",
+    "subtitle": "From first breath to professional mastery - PADI certified courses",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "professional": "Professional",
+    "duration": "Duration",
+    "maxDepth": "Max Depth",
+    "price": "Price",
+    "bookNow": "Book Now",
+    "learnMore": "Learn More"
+  },
+  "booking": {
+    "title": "Book Your Adventure",
+    "selectDate": "Select Date",
+    "participants": "Participants",
+    "specialRequests": "Special Requests",
+    "totalPrice": "Total Price",
+    "payNow": "Pay Now",
+    "bookingConfirmed": "Booking Confirmed!",
+    "checkEmail": "Please check your email for confirmation details."
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "email": "Email",
+    "password": "Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phone": "Phone",
+    "forgotPassword": "Forgot Password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "welcomeBack": "Welcome Back",
+    "createAccount": "Create Account"
+  },
+  "footer": {
+    "contactUs": "Contact Us",
+    "followUs": "Follow Us",
+    "quickLinks": "Quick Links",
+    "newsletter": "Newsletter"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "overview": "Overview",
+    "bookings": "Bookings",
+    "courses": "Courses",
+    "schedules": "Schedules",
+    "users": "Users"
+  },
+  "errors": {
+    "invalidCredentials": "Invalid email or password",
+    "emailExists": "Email already registered",
+    "requiredField": "This field is required",
+    "serverError": "Something went wrong. Please try again."
+  }
+}
